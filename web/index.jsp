@@ -26,7 +26,6 @@
         text-align: center;
       }
     </style>
-
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
   </head>
@@ -39,14 +38,13 @@
           欢迎登录救护队图书资料管理系统
         </div>
 
-        <form class="bootstrap-admin-login-form" method="post" <%--action="/books/LoginServlet"--%>>
+        <form class="bootstrap-admin-login-form" method="post" action="login">
           <%
             String state = (String)session.getAttribute("state");
             session.removeAttribute("state");
             if(state!=null){
           %>
-          <label class="control-label" for="username">密码错误</label>
-
+          <label class="control-label" for="username" style="color: red">工号或密码错误，请重新输入！</label>
           <%}%>
           <div class="form-group">
             <label class="control-label" for="username">账&nbsp;号</label>

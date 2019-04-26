@@ -8,7 +8,7 @@ public class History {
     private int historyId;//浏览记录id
     private int userId;//用户id
     private int bookId;//图书id
-    private int card;//图书号
+    private String card;//图书号
     private String bookName;//图书名称
     private String adminName;//用户的账号
     private String userName;//用户名
@@ -38,11 +38,11 @@ public class History {
         this.bookId = bookId;
     }
 
-    public int getCard() {
+    public String getCard() {
         return card;
     }
 
-    public void setCard(int card) {
+    public void setCard(String card) {
         this.card = card;
     }
 

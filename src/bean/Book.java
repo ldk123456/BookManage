@@ -7,7 +7,7 @@ public class Book {
 
     private int bookId;//id
     private String bookName;//图书名称
-    private int card;//图书号
+    private String card;//图书号
     private String author;//作者
     private String press;//出版社
     private String type;//图书的分类
@@ -28,11 +28,11 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public int getCard() {
+    public String getCard() {
         return card;
     }
 
-    public void setCard(int card) {
+    public void setCard(String card) {
         this.card = card;
     }
 
