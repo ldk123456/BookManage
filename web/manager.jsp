@@ -33,7 +33,7 @@
     User user = new User();
     String userId = (String)session.getAttribute("user_id");
     UserDao userDao = new UserDao();
-    user = userDao.getUser(userId);
+    user = userDao.getUserById(userId);
 
 %>
 <nav class="navbar navbar-inverse navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small" role="navigation">
@@ -41,10 +41,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="collapse navbar-collapse main-navbar-collapse">
-                    <a class="navbar-brand" href="/admin/admin.jsp"><strong>欢迎使用救护队图书资料管理系统</strong></a>
+                    <a class="navbar-brand" href="manager.jsp"><strong>欢迎使用救护队图书资料管理系统</strong></a>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i> 欢迎您， <s:property value="#session.admin.name"/> <i class="caret"></i></a>
+                            <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i>欢迎您，<%out.write(user.getUserName());%><i class="caret"></i></a>
 
                             <ul class="dropdown-menu">
                                 <li><a href="#updateinfo" data-toggle="modal">个人资料</a></li>
@@ -131,7 +131,7 @@
 
     <!-------------------------------------------------------------->
 
-    <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->
+    <form class="form-horizontal" method="post" action="user">   <!--保证样式水平不混乱-->
         <!-- 模态框（Modal） -->
         <div class="modal fade" id="updatepwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -148,7 +148,7 @@
 
                         <!--正文-->
                         <input type="hidden" name="tip" value="1">
-                        <input type="hidden" name="url" value="admin">
+                        <input type="hidden" name="url" value="manager">
                         <div class="form-group">
                             <label for="first_name" class="col-sm-3 control-label">原密码</label>
                             <div class="col-sm-7">
@@ -179,7 +179,7 @@
 
     <!-------------------------个人资料模糊框------------------------------------->
 
-    <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->
+    <form class="form-horizontal" method="post" action="user">   <!--保证样式水平不混乱-->
         <!-- 模态框（Modal） -->
         <div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -195,7 +195,7 @@
 
                     <div class="modal-body">
                         <input type="hidden" name="tip" value="2">
-                        <input type="hidden" name="url" value="admin">
+                        <input type="hidden" name="url" value="manager">
                         <div class="form-group">
                             <label for="first_name" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-7">

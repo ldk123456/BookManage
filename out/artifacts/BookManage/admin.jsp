@@ -33,22 +33,21 @@
     User user = new User();
     String userId = (String)session.getAttribute("user_id");
     UserDao userDao = new UserDao();
-    user = userDao.getUser(userId);
-
+    user = userDao.getUserById(userId);
 %>
 <nav class="navbar navbar-inverse navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small" role="navigation">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="collapse navbar-collapse main-navbar-collapse">
-                    <a class="navbar-brand" href="/reader.jsp"><strong>欢迎使用救护队图书资料管理系统</strong></a>
+                    <a class="navbar-brand" href="admin.jsp"><strong>欢迎使用救护队图书资料管理系统</strong></a>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i>     欢迎您，<s:property value="#session.reader.name"/><i class="caret"></i></a>
+                            <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i>欢迎您，<%out.write(user.getUserName());%><i class="caret"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#updateinfo" data-toggle="modal">个人资料</a></li>
+                                <li><a href="#update_info" data-toggle="modal">个人资料</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li><a href="#updatepwd" data-toggle="modal">修改密码</a></li>
+                                <li><a href="#update_password" data-toggle="modal">修改密码</a></li>
                                 <li role="presentation" class="divider"></li>
                                 <li><a href="index.jsp">退出</a></li>
                             </ul>
@@ -118,9 +117,9 @@
 
 <!-------------------------------------------------------------->
 
-<form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->
+<form class="form-horizontal" method="post" action="user">   <!--保证样式水平不混乱-->
     <!-- 模态框（Modal） -->
-    <div class="modal fade" id="updatepwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="update_password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -135,9 +134,9 @@
 
                     <!--正文-->
                     <input type="hidden" name="tip" value="1">
-                    <input type="hidden" name="url" value="index">
+                    <input type="hidden" name="url" value="admin">
                     <div class="form-group">
-                        <label for="firstname" class="col-sm-3 control-label">原密码</label>
+                        <label for="name" class="col-sm-3 control-label">原密码</label>
                         <div class="col-sm-7">
                             <input type="password" class="form-control" name="password" id="oldPwd"  placeholder="请输入原密码">
                             <label class="control-label" for="oldPwd" style="display: none"></label>
@@ -145,7 +144,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="firstname" class="col-sm-3 control-label">新密码</label>
+                        <label for="name" class="col-sm-3 control-label">新密码</label>
                         <div class="col-sm-7">
                             <input type="password" class="form-control" name="password2" id="newPwd"  placeholder="请输入新密码">
                             <label class="control-label" for="newPwd" style="display: none"></label>
@@ -170,9 +169,9 @@
 
 <!-------------------------个人资料模糊框------------------------------------->
 
-<form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->
+<form class="form-horizontal" method="post" action="user">   <!--保证样式水平不混乱-->
     <!-- 模态框（Modal） -->
-    <div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="update_info" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -188,9 +187,9 @@
 
                     <!--正文-->
                     <input type="hidden" name="tip" value="2">
-                    <input type="hidden" name="url" value="index">
+                    <input type="hidden" name="url" value="admin">
                     <div class="form-group">
-                        <label for="firstname" class="col-sm-3 control-label">用户名</label>
+                        <label for="name" class="col-sm-3 control-label">用户名</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="name" name="name" placeholder="请输入用户名" value='<% out.write(user.getUserName());%>'>
                             <label class="control-label" for="name" style="display: none"></label>
@@ -198,16 +197,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="firstname" class="col-sm-3 control-label">手机号</label>
+                        <label for="name" class="col-sm-3 control-label">手机号</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control" id="phone" name="phone" placeholder="请输入手机号" value='<% out.write(user.getPhone());%>'>
                             <label class="control-label" for="phone" style="display: none"></label>
                         </div>
                     </div>
-
-                    <!--正文-->
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭

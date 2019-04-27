@@ -72,7 +72,7 @@ public class UserDao {
      * @param adminName
      * @return
      */
-    public User getUser(String adminName) {
+    public User getUserByName(String adminName) {
         // TODO Auto-generated method stub
         User user = new User();
         Connection conn = DBUtil.getConnectDb();
@@ -137,7 +137,7 @@ public class UserDao {
      * @param userId
      * @return
      */
-    public User getUser(int userId){
+    public User getUserById(int userId){
         User user = new User();
         Connection conn = DBUtil.getConnectDb();
         String sql = "select * from user where id="+userId;
@@ -160,6 +160,17 @@ public class UserDao {
         }finally{
             DBUtil.closeDB(rs, stm, conn);
         }
+        return user;
+    }
+
+    /**
+     * 根据传入的id，查找到对应的读者的全部信息，返回一个User类型的数据，与上一个相似，只是id的类型为String，
+     * @param userId
+     * @return
+     */
+    public User getUserById(String userId){
+        User user = new User();
+        user=getUserById(Integer.parseInt(userId));
         return user;
     }
 

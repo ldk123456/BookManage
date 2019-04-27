@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
             User user = null;
             UserDao userDao = new UserDao();
             //根据账号查找出读者的信息
-            user = userDao.getUser(userName);
-            //将aid存入session中
+            user = userDao.getUserByName(userName);
+            //将id存入session中
             session.setAttribute("user_id", ""+user.getUserId());
             //设置session的失效时间
             session.setMaxInactiveInterval(6000);
