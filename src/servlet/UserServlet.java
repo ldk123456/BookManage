@@ -42,7 +42,7 @@ public class UserServlet extends HttpServlet {
             //对旧密码进行比较，如果相同就修改，不相同就直接退出
             if(oldPassword.equals(password)){
                 userDao.updateUser(user.getUserId(), user.getAdminName(), user.getUserName(), password2, user.getPhone());
-                out.write("<script type='text/javascript'>alert('修改成功，请重新登录');location.href='index.jsp';  </script>");
+                out.write("<script type='text/javascript'>alert('修改成功，请重新登录');location.href='index.jsp';</script>");
             }else{
                 out.write("<script type='text/javascript'>alert('原密码错误！请重新输入');location.href='"+url+".jsp';</script>");
             }

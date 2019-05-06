@@ -1,13 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: LDK
-  Date: 2019/4/26
-  Time: 18:41
+  Date: 2019/5/6
+  Time: 16:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="bean.User" %>
 <%@ page import="dao.UserDao" %>
+<%@ page import="bean.Book" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.BookDao" %>
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
     <title>救护队图书资料管理系统</title>
@@ -80,38 +83,92 @@
         <!-- content -->
         <div class="col-md-10">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
+                <div class="col-lg-12">
+                    <div class="panel panel-default bootstrap-admin-no-table-panel">
                         <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">图书查询</div>
+                            <div class="text-muted bootstrap-admin-box-title">查询</div>
                         </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>根据图书名称查询图书信息</li>
-                                <li>可查询图书的编号、名称、分类、作者等</li>
-                            </ul>
+                        <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+                            <form class="form-horizontal" action="select" method="post">
+                                <input type="hidden" name="tip" value="2">
+                                <div class="col-lg-8 form-group">
+                                    <label class="col-lg-4 control-label" for="bookName">图书名称</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" id="bookName" name="name" type="text" value="">
+                                        <label class="control-label" for="bookName" style="display: none;"></label>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4 form-group">
+                                    <button type="submit" class="btn btn-primary" id="btn_query" >查询</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">浏览历史</div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>查询自己以往的浏览历史，包括图书的具体信息</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="col-lg-12">
+                    <table id="data_list" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>图书号</th>
+                            <th>图书类型</th>
+                            <th>图书名称</th>
+                            <th>作者名称</th>
+                            <th>出版社</th>
+                            <th>操作</th>
+
+                        </tr>
+                        </thead>
+
+
+                        <!---在此插入信息-->
+                        <!---在此插入信息-->
+                        <%
+                            ArrayList<Book> bookdata = new ArrayList<>();
+                            bookdata = (ArrayList<Book>)request.getAttribute("data");
+                            if(bookdata==null){
+                                BookDao bookdao = new BookDao();
+                                bookdata = (ArrayList<Book>)bookdao.getBookInfo();
+                            }
+
+                            for (Book bean : bookdata){
+                        %>
+                        <tbody>
+                        <td><%= bean.getCard() %></td>
+                        <td><%= bean.getType() %></td>
+                        <td><%= bean.getBookName() %></td>
+                        <td><%= bean.getAuthor() %></td>
+                        <td><%= bean.getPress() %></td>
+                        <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" onclick="readBook(<%= bean.getBookId() %>)" >阅读</button>
+                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" onclick="downloadBook(<%= bean.getBookId() %>)" >下载</button>   	</td>
+                        </tbody>
+                        <%} %>
+
+                    </table>
+
                 </div>
-
-
             </div>
 
+            <script type="text/javascript">
+                function readBook(id) {
+
+                }
+            </script>
+            <script type="text/javascript">
+                function downloadBook(id) {
+                    con = confirm("是否下载?");
+                    if(con == true){
+                        /*location.href = "/books/borrowServlet?tip=1&bid="+id;*/
+                    }
+                }
+            </script>
         </div>
+
     </div>
 </div>
 
@@ -238,3 +295,4 @@
 
 </body>
 </html>
+

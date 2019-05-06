@@ -121,41 +121,6 @@ public class BookDao {
     }
 
     /**
-     * 获取浏览记录的全部信息，aid代表当前登录用户
-     * @param userId
-     * @return
-     */
-    public ArrayList<History> getHistoryInfo(int userId){
-        ArrayList<History> tag_Array = new ArrayList<>();
-        Connection conn = DBUtil.getConnectDb();
-        String sql = "select * from history where id="+userId;
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            stm = conn.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while(rs.next()){
-                History tag = new History();
-                tag.setHistoryId(rs.getInt("id"));
-                tag.setUserId(rs.getInt("user_id"));
-                tag.setBookId(rs.getInt("book_id"));
-                tag.setCard(rs.getString("card"));
-                tag.setBookName(rs.getString("book_name"));
-                tag.setAdminName(rs.getString("admin_name"));
-                tag.setUserName(rs.getString("user_name"));
-                tag.setTime(rs.getString("time"));
-                tag_Array.add(tag);
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }finally{
-            DBUtil.closeDB(rs, stm, conn);
-        }
-        return tag_Array;
-    }
-
-    /**
      * 获取单个图书的信息，根据传入的id来查找，返回一个Book数据类型
      * @param bookId
      * @return
@@ -195,7 +160,7 @@ public class BookDao {
         // TODO Auto-generated method stub
         ArrayList<Book> tag_Array = new ArrayList<>();
         Connection conn = DBUtil.getConnectDb();
-        String sql = "select * from book where name like '%"+name+"%'";
+        String sql = "select * from book where book_name like '%"+name+"%'";
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
@@ -209,6 +174,41 @@ public class BookDao {
                 tag.setAuthor(rs.getString("author"));
                 tag.setPress(rs.getString("press"));
                 tag.setType(rs.getString("type"));
+                tag_Array.add(tag);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            DBUtil.closeDB(rs, stm, conn);
+        }
+        return tag_Array;
+    }
+
+    /**
+     * 获取浏览记录的全部信息，aid代表当前登录用户
+     * @param userId
+     * @return
+     */
+    public ArrayList<History> getHistoryInfo(int userId){
+        ArrayList<History> tag_Array = new ArrayList<>();
+        Connection conn = DBUtil.getConnectDb();
+        String sql = "select * from history where id="+userId;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = conn.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                History tag = new History();
+                tag.setHistoryId(rs.getInt("id"));
+                tag.setUserId(rs.getInt("user_id"));
+                tag.setBookId(rs.getInt("book_id"));
+                tag.setCard(rs.getString("card"));
+                tag.setBookName(rs.getString("book_name"));
+                tag.setAdminName(rs.getString("admin_name"));
+                tag.setUserName(rs.getString("user_name"));
+                tag.setTime(rs.getString("time"));
                 tag_Array.add(tag);
             }
         } catch (SQLException e) {

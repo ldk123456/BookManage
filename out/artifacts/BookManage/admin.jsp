@@ -66,10 +66,10 @@
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li>
-                    <a href="/books/select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
+                    <a href="select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
                 </li>
                 <li>
-                    <a href="/books/history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 浏览历史</a>
+                    <a href="history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 浏览历史</a>
                 </li>
 
 
@@ -87,7 +87,7 @@
                         </div>
                         <div class="bootstrap-admin-panel-content">
                             <ul>
-                                <li>根据图书编号、图书名称查询图书信息</li>
+                                <li>根据图书名称查询图书信息</li>
                                 <li>可查询图书的编号、名称、分类、作者等</li>
                             </ul>
                         </div>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="bootstrap-admin-panel-content">
                             <ul>
-                                <li>查询自己以往的浏览历史，包括哪些图书等具体信息</li>
+                                <li>查询自己以往的浏览历史，包括图书的具体信息</li>
                             </ul>
                         </div>
                     </div>
