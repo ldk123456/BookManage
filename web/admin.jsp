@@ -1,13 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: LDK
-  Date: 2019/4/26
-  Time: 18:41
+  Date: 2019/5/6
+  Time: 16:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="bean.User" %>
 <%@ page import="dao.UserDao" %>
+<%@ page import="bean.Book" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.BookDao" %>
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
     <title>救护队图书资料管理系统</title>
@@ -62,56 +65,37 @@
 <div class="container">
     <!-- left, vertical navbar & content -->
     <div class="row">
-        <!-- left, vertical navbar -->
-        <div class="col-md-2 bootstrap-admin-col-left">
-            <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                <li>
-                    <a href="select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
-                </li>
-                <li>
-                    <a href="history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 浏览历史</a>
-                </li>
-
-
-
-            </ul>
-        </div>
 
         <!-- content -->
         <div class="col-md-10">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">图书查询</div>
+                <div class="col-lg-12">
+                    <div class="panel panel-default bootstrap-admin-no-table-panel">
+                        <div style="text-align: center" class="panel-heading">
+                            <div class="text-muted bootstrap-admin-box-title"><strong>图书资料查询</strong></div>
                         </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>根据图书名称查询图书信息</li>
-                                <li>可查询图书的编号、名称、分类、作者等</li>
-                            </ul>
+                        <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+                            <form class="form-horizontal" action="select" method="post">
+                                <input type="hidden" name="tip" value="2">
+                                <div class="col-lg-8 form-group">
+                                    <label class="col-lg-4 control-label" for="bookName">图书名称</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" id="bookName" name="name" type="text" value="">
+                                        <label class="control-label" for="bookName" style="display: none;"></label>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4 form-group">
+                                    <button type="submit" class="btn btn-primary" id="btn_query" >查询</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">浏览历史</div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>查询自己以往的浏览历史，包括图书的具体信息</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
         </div>
+
     </div>
 </div>
 
@@ -238,3 +222,4 @@
 
 </body>
 </html>
+

@@ -65,28 +65,14 @@
 <div class="container">
     <!-- left, vertical navbar & content -->
     <div class="row">
-        <!-- left, vertical navbar -->
-        <div class="col-md-2 bootstrap-admin-col-left">
-            <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                <li>
-                    <a href="select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
-                </li>
-                <li>
-                    <a href="history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 浏览历史</a>
-                </li>
-
-
-
-            </ul>
-        </div>
 
         <!-- content -->
         <div class="col-md-10">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default bootstrap-admin-no-table-panel">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">查询</div>
+                        <div style="text-align: center" class="panel-heading">
+                            <div class="text-muted bootstrap-admin-box-title"><strong>图书资料查询</strong></div>
                         </div>
                         <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
                             <form class="form-horizontal" action="select" method="post">
@@ -112,7 +98,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <table id="data_list" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                    <table id="data_list" class="table table-hover table-bordered">
                         <thead>
                         <tr>
                             <th>图书号</th>
@@ -131,10 +117,6 @@
                         <%
                             ArrayList<Book> bookdata = new ArrayList<>();
                             bookdata = (ArrayList<Book>)request.getAttribute("data");
-                            if(bookdata==null){
-                                BookDao bookdao = new BookDao();
-                                bookdata = (ArrayList<Book>)bookdao.getBookInfo();
-                            }
 
                             for (Book bean : bookdata){
                         %>
@@ -156,13 +138,14 @@
 
             <script type="text/javascript">
                 function readBook(id) {
-
+                    //阅读功能
                 }
             </script>
             <script type="text/javascript">
                 function downloadBook(id) {
                     con = confirm("是否下载?");
                     if(con == true){
+                        //下载功能
                         /*location.href = "/books/borrowServlet?tip=1&bid="+id;*/
                     }
                 }
