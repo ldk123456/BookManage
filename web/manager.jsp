@@ -1,5 +1,6 @@
 <%@ page import="bean.User" %>
-<%@ page import="dao.UserDao" %><%--
+<%@ page import="dao.UserDao" %>
+<%--
   Created by IntelliJ IDEA.
   User: LDK
   Date: 2019/4/26
@@ -72,10 +73,10 @@
                     <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                 </li>
                 <li>
-                    <a href="/books/admin_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
                 </li>
                 <li>
-                    <a href="/books/admin_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
+                    <a href="manage_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
                 </li>
             </ul>
         </div>

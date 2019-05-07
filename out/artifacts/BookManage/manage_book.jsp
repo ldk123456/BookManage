@@ -80,10 +80,10 @@
                     <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                 </li>
                 <li>
-                    <a href="/books/admin_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
                 </li>
                 <li>
-                    <a href="/books/admin_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
+                    <a href="manage_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
                 </li>
             </ul>
         </div>
@@ -179,7 +179,6 @@
             if(con == true){
                 //删除图书
                 location.href = "delete?id="+id;
-                //location.href = "/books/deleteServlet?bid="+bid;
             }
         }
     </script>
