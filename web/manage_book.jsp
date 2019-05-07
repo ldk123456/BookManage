@@ -141,10 +141,6 @@
                         <%
                             ArrayList<Book> bookdata = new ArrayList<>();
                             bookdata = (ArrayList<Book>)request.getAttribute("data");
-                            /*if(bookdata==null){
-                                BookDao bookdao = new BookDao();
-                                bookdata = (ArrayList<Book>)bookdao.getBookInfo();
-                            }*/
                             if (bookdata != null) {
                                 for (Book bean : bookdata){
                         %>
@@ -182,6 +178,8 @@
             con = confirm("是否删除?");
             if(con == true){
                 //删除图书
+                location.href = "delete?id="+id;
+                //location.href = "/books/deleteServlet?bid="+bid;
             }
         }
     </script>

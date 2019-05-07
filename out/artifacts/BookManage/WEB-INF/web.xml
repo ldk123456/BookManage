@@ -47,5 +47,14 @@
         <servlet-name>AddBookServlet</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>servlet.DeleteBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
 
 </web-app>
