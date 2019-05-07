@@ -29,4 +29,13 @@
         <servlet-name>SelectServlet</servlet-name>
         <url-pattern>/select</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <servlet-class>servlet.UpdateBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
 </web-app>

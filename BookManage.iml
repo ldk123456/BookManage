@@ -21,6 +21,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.19" level="application_server_libraries" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -29,16 +30,6 @@
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/web/WEB-INF/lib" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.19" level="application_server_libraries" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/Tencent Files/1786079189/FileRecv/mysql-connector-java-5.1.46.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
       </library>
     </orderEntry>
   </component>

@@ -26,7 +26,7 @@ public class SelectServlet extends HttpServlet {
         String url = "";
         //转发不同的界面
         if(tip==1){
-            url = response.encodeURL("admin_book.jsp");
+            url = response.encodeURL("manage_book.jsp");
         }else{
             url = response.encodeURL("select.jsp");
         }
