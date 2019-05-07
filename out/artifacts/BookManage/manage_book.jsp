@@ -77,7 +77,7 @@
                     <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                 </li>
                 <li>
-                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                 </li>
             </ul>
         </div>

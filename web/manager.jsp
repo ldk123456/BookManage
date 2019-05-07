@@ -73,7 +73,7 @@
                     <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                 </li>
                 <li>
-                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                 </li>
             </ul>
         </div>
@@ -97,11 +97,11 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">读者管理</div>
+                            <div class="text-muted bootstrap-admin-box-title">用户管理</div>
                         </div>
                         <div class="bootstrap-admin-panel-content">
                             <ul>
-                                <li>根据账号、姓名查询读者基本信息</li>
+                                <li>根据账号查询用户基本信息</li>
                                 <li>添加、修改、删除读者信息</li>
                             </ul>
                         </div>

@@ -1,11 +1,12 @@
-  Created by IntelliJ IDEA.
+  <%--Created by IntelliJ IDEA.
   User: LDK
   Date: 2019/5/7
   Time: 13:10
-  To change this template use File | Settings | File Templates.
+  To change this template use File | Settings | File Templates.--%>
 <%@ page import="bean.User" %>
 <%@ page import="dao.UserDao" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+  <%@ page import="java.util.ArrayList" %>
+  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
     <meta charset="UTF-8">
@@ -71,7 +72,7 @@
                     <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                 </li>
                 <li>
-                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                    <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                 </li>
             </ul>
         </div>
@@ -85,7 +86,18 @@
                             <div class="text-muted bootstrap-admin-box-title">用户管理</div>
                         </div>
                         <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                            <form class="form-horizontal" <%--action="/books/selectServlet"--%> method="post">
+                            <form class="form-horizontal" action="find" method="post">
+                                <div class="col-lg-7 form-group">
+                                    <label class="col-lg-4 control-label" for="adminName">用户账号</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" id="adminName" name="name" type="text" value="">
+                                        <label class="control-label" for="adminName" style="display: none;"></label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 form-group">
+
+                                    <button type="submit" class="btn btn-primary" id="btn_query" onclick="">查找</button>
+                                </div>
 
                                 <div class="col-lg-3 form-group">
 
@@ -104,40 +116,34 @@
                         <thead>
                         <tr>
                             <th>账号</th>
-                            <th>姓名</th>
+                            <th>用户名</th>
                             <th>手机号</th>
-                            <th>权限</th>
                             <th>操作</th>
                         </tr>
                         </thead>
 
-
                         <!---在此插入信息-->
                         <%
-                            ArrayList<AdminBean> data2 = new ArrayList<AdminBean>();
-                            data2 = (ArrayList<AdminBean>)request.getAttribute("data");
-                            if(data2==null){
+                            ArrayList<User> data2 = new ArrayList<>();
+                            data2 = (ArrayList<User>)request.getAttribute("data");
+                            if(data2!=null){
 
-                                data2 = (ArrayList<AdminBean>)admindao.get_ListInfo();
-                            }
-
-                            for (AdminBean bean : data2){
+                            for (User bean : data2){
                         %>
                         <tbody>
-                        <td><%= bean.getUsername() %></td>
-                        <td><%= bean.getName() %></td>
-                        <td><%= bean.getEmail() %></td>
+                        <td><%= bean.getAdminName() %></td>
+                        <td><%= bean.getUserName() %></td>
                         <td><%= bean.getPhone() %></td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td><%= bean.getLend_num() %></td>
-                        <td><%= bean.getMax_num() %></td>
-                        <td><button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateModal"
-                                    id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %>,<%= bean.getName() %>,<%= bean.getEmail() %>
-                                ,<%= bean.getPhone() %>,<%= bean.getPassword() %>,<%= bean.getLend_num() %>,<%= bean.getMax_num() %>)">修改</button>
-                            <button type="button" class="btn btn-danger btn-xs" onclick="deletebook(<%= bean.getAid() %>)">删除</button>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateStatusModal"
+                                    id="btn_update2" onclick="updateStatus(<%= bean.getUserId() %>,'<%= bean.getStatus()%>')">设置权限</button>
+                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateModal"
+                                    id="btn_update1" onclick="updateUser(<%= bean.getUserId() %>,'<%= bean.getAdminName() %>','<%= bean.getUserName() %>'
+                                ,<%= bean.getPhone() %>,'<%= bean.getPassword() %>')">修改信息</button>
+                            <button type="button" class="btn btn-danger btn-xs" onclick="deleteUser(<%= bean.getUserId() %>)">删除</button>
                         </td>
                         </tbody>
+                        <%} %>
                         <%} %>
                     </table>
                 </div>
@@ -145,30 +151,75 @@
         </div>
     </div>
     <script type="text/javascript">
-        function showInfo2(aid,username,name,email,phone,password,lend_num,max_num) {
-            document.getElementById("updateaid").value = aid;
-            document.getElementById("updateusername").value = username;
-            document.getElementById("updatename").value = name;
-            document.getElementById("updateemail").value = email;
-            document.getElementById("updatephone").value = phone;
-            document.getElementById("updatepassword").value = password;
-            document.getElementById("updatelend_num").value = lend_num;
-            document.getElementById("updatemax_num").value = max_num;
+        function updateStatus(id,status) {
+            document.getElementById("updateStatusId").value = id;
+            document.getElementById("updateStatus").value = status;
         }
-        function deletebook(aid) {
+        function updateUser(id,username,name,phone,password) {
+            document.getElementById("updateUserId").value = id;
+            document.getElementById("updateAdminName").value = username;
+            document.getElementById("updateUserName").value = name;
+            document.getElementById("updatePhone").value = phone;
+            document.getElementById("updatePassword").value = password;
+        }
+        function deleteUser(id) {
             con=confirm("是否删除?");
             if(con==true){
-                location.href = "/books/deleteUserServlet?aid="+aid;
+                location.href = "delete_user?id="+id;
             }
         }
     </script>
 
+    <!-- 设置权限模态框（Modal） -->
+    <form class="form-horizontal" method="post" action="update_status">   <!--保证样式水平不混乱-->
+        <div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="updateStatusModalLabel">
+                            设置用户权限
+                        </h4>
+                    </div>
+                    <div class="modal-body">
 
-    <!-- 修改模态框（Modal） -->
+                        <!---------------------表单-------------------->
+                        <div class="form-group">
+                            <label for="updateStatus" class="col-sm-3 control-label">权限</label>
+                            <div class="col-sm-7">
+                                <input type="hidden" id="updateStatusId" name="statusId">
+                                <select class="form-control" id="updateStatus" name="status" onPropertyChange="showValue(this.value)">
+                                    <option value="-1">请选择</option>
+                                    <option value="管理员">管理员</option>
+                                    <option value="普通用户">普通用户</option>
+                                </select>
+                                <label class="control-label" for="updateStatus" style="display: none;"></label>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="submit" class="btn btn-primary" >
+                            修改
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+    </form>
+
+
+
     <!-------------------------------------------------------------->
 
     <!-- 修改模态框（Modal） -->
-    <form class="form-horizontal" method="post" action="/books/updateUserServlet">   <!--保证样式水平不混乱-->
+    <form class="form-horizontal" method="post" action="update_user">   <!--保证样式水平不混乱-->
         <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -185,58 +236,37 @@
                         <!---------------------表单-------------------->
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">账号</label>
+                            <label for="updateAdminName" class="col-sm-3 control-label">账号</label>
                             <div class="col-sm-7">
-                                <input type="hidden" id="updateaid" name="aid">
-                                <input type="text" class="form-control" id="updateusername" name="username"  placeholder="">
-                                <label class="control-label" for="updateISBN" style="display: none;"></label>
+                                <input type="hidden" id="updateUserId" name="aid">
+                                <input type="text" class="form-control" id="updateAdminName" name="adminName"  placeholder="">
+                                <label class="control-label" for="updateAdminName" style="display: none;"></label>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">姓名</label>
+                            <label for="updateUserName" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updatename" name="name"  placeholder="">
-                                <label class="control-label" for="updateBookName" style="display: none;"></label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">邮箱</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updateemail" name="email" placeholder="">
-                                <label class="control-label" for="updateAutho" style="display: none;"></label>
+                                <input type="text" class="form-control" id="updateUserName" name="userName"  placeholder="">
+                                <label class="control-label" for="updateUserName" style="display: none;"></label>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">手机号</label>
+                            <label for="updatePhone" class="col-sm-3 control-label">手机号</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updatephone" name="phone"  placeholder="">
-                                <label class="control-label" for="updatePress" style="display: none;"></label>
+                                <input type="text" class="form-control" id="updatePhone" name="phone"  placeholder="">
+                                <label class="control-label" for="updatePhone" style="display: none;"></label>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">密码</label>
+                            <label for="updatePassword" class="col-sm-3 control-label">密码</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updatepassword" name="password"  placeholder="">
-                                <label class="control-label" for="updatePress" style="display: none;"></label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">可借阅天数</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updatelend_num" name="lend_num"  placeholder="">
-                                <label class="control-label" for="updatePress" style="display: none;"></label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">最大借阅数</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updatemax_num" name="max_num"  placeholder="">
-                                <label class="control-label" for="updatePress" style="display: none;"></label>
+                                <input type="text" class="form-control" id="updatePassword" name="password"  placeholder="">
+                                <label class="control-label" for="updatePassword" style="display: none;"></label>
                             </div>
                         </div>
                     </div>
@@ -261,7 +291,7 @@
 
 
     <!--------------------------------------添加的模糊框------------------------>
-    <form class="form-horizontal" method="post" action="/books/AddUserServlet">   <!--保证样式水平不混乱-->
+    <form class="form-horizontal" method="post" action="add_user">>   <!--保证样式水平不混乱-->
         <!-- 模态框（Modal） -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -270,7 +300,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">
+                        <h4 class="modal-title" id="myModalLabel1">
                             添加新读者
                         </h4>
                     </div>
@@ -279,62 +309,35 @@
                         <!---------------------表单-------------------->
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">账号</label>
+                            <label for="addAdminName" class="col-sm-3 control-label">账号</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="username" id="addISBN" required="required" placeholder="请输入账号">
-                                <label class="control-label" for="addISBN" style="display: none;"></label>
+                                <input type="text" class="form-control" name="adminName" id="addAdminName" required="required" placeholder="请输入账号">
+                                <label class="control-label" for="addAdminName" style="display: none;"></label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">姓名</label>
+                            <label for="addUserName" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="name" id="addBookName" required="required"  placeholder="请输入姓名">
-                                <label class="control-label" for="addBookName" style="display: none;"></label>
-                            </div>
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">邮箱</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" name="email" id="addAutho" required="required"  placeholder="请输入邮箱">
-                                <label class="control-label" for="addAutho" style="display: none;"></label>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">手机号</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" name="phone" id="addPress" required="required"  placeholder="请输入手机号">
-                                <label class="control-label" for="addPress" style="display: none;"></label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">密码</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" name="password" id="addPress" required="required"   placeholder="请输入密码">
-                                <label class="control-label" for="addPress" style="display: none;"></label>
+                                <input type="text" class="form-control" name="userName" id="addUserName" required="required"  placeholder="请输入用户名">
+                                <label class="control-label" for="addUserName" style="display: none;"></label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">可借阅天数</label>
+                            <label for="addPhone" class="col-sm-3 control-label">手机号</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="lend_num" id="updatelend_num" required="required"  placeholder="请输入可借阅天数">
-                                <label class="control-label" for="addNum" style="display: none;"></label>
+                                <input type="text" class="form-control" name="phone" id="addPhone" required="required"  placeholder="请输入手机号">
+                                <label class="control-label" for="addPhone" style="display: none;"></label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">最大可借数</label>
+                            <label for="addPassword" class="col-sm-3 control-label">密码</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="max_num" id="updatemax_num" required="required" placeholder="请输入最大可借数">
-                                <label class="control-label" for="addPress" style="display: none;"></label>
+                                <input type="text" class="form-control" name="password" id="addPassword" required="required"   placeholder="请输入密码">
+                                <label class="control-label" for="addPassword" style="display: none;"></label>
                             </div>
                         </div>
-
 
                         <!---------------------表单-------------------->
                     </div>

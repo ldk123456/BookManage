@@ -56,5 +56,50 @@
         <servlet-name>DeleteBookServlet</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FindUserServlet</servlet-name>
+        <servlet-class>servlet.FindUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindUserServlet</servlet-name>
+        <url-pattern>/find</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>servlet.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/update_user</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>servlet.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/add_user</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>servlet.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/delete_user</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateStatusServlet</servlet-name>
+        <servlet-class>servlet.UpdateStatusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateStatusServlet</servlet-name>
+        <url-pattern>/update_status</url-pattern>
+    </servlet-mapping>
 
 </web-app>

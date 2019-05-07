@@ -50,7 +50,7 @@ public class UserDao {
     public void addUser(String adminName, String userName, String password, String phone) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
-        String sql = "insert into user(status,admin_name,user_name,password,phone) values(?,?,?,?,?,?)";
+        String sql = "insert into user(status,admin_name,user_name,password,phone) values(?,?,?,?,?)";
         int rs = 0;
         PreparedStatement stm = null;
         try {
@@ -100,37 +100,38 @@ public class UserDao {
     }
 
     /**
-     * 获取全部用户的信息，其中sql语句中的status=0，表示只查找读者，不显示管理员的
+     * 查找图书用户，根据输入的名称，使用like进行模糊查询，然后返回一个ArrayList数组类型
+     * @param adminName
      * @return
-     *//*
-    public ArrayList<User> getUserInfo(){
-        ArrayList<User> tagArray = new ArrayList<>();
+     */
+    public ArrayList<User> getLikeList(String adminName) {
+        // TODO Auto-generated method stub
+        ArrayList<User> tag_Array = new ArrayList<>();
         Connection conn = DBUtil.getConnectDb();
-        String sql = "select * from user where status=0";
+        String sql = "select * from user where admin_name like '%"+adminName+"%'";
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
             stm = conn.prepareStatement(sql);
             rs = stm.executeQuery();
             while(rs.next()){
-                User user = new User();
-                user.setUserId(rs.getInt("id"));
-                user.setStatus(rs.getInt("status"));
-                user.setAdminName(rs.getString("admin_name"));
-                user.setUserName(rs.getString("user_name"));
-                user.setPassword(rs.getString("password"));
-                user.setPhone(rs.getString("phone"));
-                tagArray.add(user);
+                User tag = new User();
+                tag.setUserId(rs.getInt("id"));
+                tag.setStatus(rs.getString("status"));
+                tag.setAdminName(rs.getString("admin_name"));
+                tag.setUserName(rs.getString("user_name"));
+                tag.setPassword(rs.getString("password"));
+                tag.setPhone(rs.getString("phone"));
+                tag_Array.add(tag);
             }
-
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }finally{
             DBUtil.closeDB(rs, stm, conn);
         }
-        return tagArray;
-    }*/
+        return tag_Array;
+    }
 
     /**
      * 根据传入的id，查找到对应的读者的全部信息，返回一个AdminBean类型的数据
@@ -194,6 +195,27 @@ public class UserDao {
             stm.setString(3, password);
             stm.setString(4, phone);
             stm.setInt(5, userId);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 修改用户权限
+     * @param userId
+     * @param status
+     */
+    public void updateStatus(int userId, String status) {
+        // TODO Auto-generated method stub
+        Connection conn = DBUtil.getConnectDb();
+        String sql = "update user set status=? where id=?";
+        PreparedStatement stm = null;
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, status);
+            stm.setInt(2, userId);
             stm.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
