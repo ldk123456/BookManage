@@ -27,7 +27,7 @@ public class BookDao {
     public void addBook(String card, String name, String type, String author, String press) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
-        String sql = "insert into book(name,card,author,press,type) values(?,?,?,?,?)";
+        String sql = "insert into book(book_name,card,author,press,type) values(?,?,?,?,?)";
         int rs = 0;
         PreparedStatement stm = null;
         try {

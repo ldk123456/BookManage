@@ -141,11 +141,12 @@
                         <%
                             ArrayList<Book> bookdata = new ArrayList<>();
                             bookdata = (ArrayList<Book>)request.getAttribute("data");
-                            if(bookdata==null){
+                            /*if(bookdata==null){
                                 BookDao bookdao = new BookDao();
                                 bookdata = (ArrayList<Book>)bookdao.getBookInfo();
-                            }
-                            for (Book bean : bookdata){
+                            }*/
+                            if (bookdata != null) {
+                                for (Book bean : bookdata){
                         %>
                         <tbody>
                         <td><%= bean.getCard() %></td>
@@ -159,6 +160,7 @@
                             <button type="button" class="btn btn-danger btn-xs" onclick="deleteBook(<%= bean.getBookId() %>)">删除</button>
                         </td>
                         </tbody>
+                            <%} %>
                         <%} %>
                     </table>
                 </div>
@@ -271,8 +273,8 @@
     <!-------------------------------------------------------------->
 
 
-    <%--<!--------------------------------------添加的模糊框------------------------>
-    <form class="form-horizontal" method="post" action="/books/AddBookServlet">   <!--保证样式水平不混乱-->
+    <!--------------------------------------添加的模糊框------------------------>
+    <form class="form-horizontal" method="post" action="add">   <!--保证样式水平不混乱-->
         <!-- 模态框（Modal） -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -290,7 +292,7 @@
                         <!---------------------表单-------------------->
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">图书号</label>
+                            <label for="addISBN" class="col-sm-3 control-label">图书号</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="addISBN" required="required" name="card" placeholder="请输入书号">
                                 <label class="control-label" for="addISBN" style="display: none;"></label>
@@ -298,7 +300,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">图书名称</label>
+                            <label for="addBookName" class="col-sm-3 control-label">图书名称</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="addBookName" required="required" name="name"  placeholder="请输入图书名称">
                                 <label class="control-label" for="addBookName" style="display: none;"></label>
@@ -306,47 +308,37 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">图书类型</label>
+                            <label for="addBookType" class="col-sm-3 control-label">图书类型</label>
                             <div class="col-sm-7">
                                 <select class="form-control" id="addBookType" name="type">
                                     <option value="无分类">请选择</option>
                                     <%
-
-                                        data = (ArrayList<TypeBean>)typedao.get_ListInfo();
-                                        for (TypeBean bean : data){
-                                    %>                 <option value="<%= bean.getName() %>"><%= bean.getName() %></option>                        <%} %>
+                                        data = (ArrayList<Type>)typedao.getTypeInfo();
+                                        for (Type bean : data){
+                                    %>
+                                    <option value="<%= bean.getTypeName() %>"><%= bean.getTypeName() %></option>
+                                    <%} %>
                                 </select>
                                 <label class="control-label" for="addBookType" style="display: none;"></label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">作者名称</label>
+                            <label for="addAuthor" class="col-sm-3 control-label">作者名称</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addAutho" required="required" name="autho"  placeholder="请输入作者名称">
-                                <label class="control-label" for="addAutho" style="display: none;"></label>
+                                <input type="text" class="form-control" id="addAuthor" required="required" name="author"  placeholder="请输入作者名称">
+                                <label class="control-label" for="addAuthor" style="display: none;"></label>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">出版社</label>
+                            <label for="addPress" class="col-sm-3 control-label">出版社</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="addPress" required="required" name="press"  placeholder="请输入出版社">
                                 <label class="control-label" for="addPress" style="display: none;"></label>
                             </div>
                         </div>
-
-
-                        <div class="form-group">
-                            <label for="firstname" class="col-sm-3 control-label">总数量</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addNum" required="required" name="num" placeholder="请输入图书总数量">
-                                <label class="control-label" for="addNum" style="display: none;"></label>
-                            </div>
-                        </div>
-
-
 
                         <!---------------------表单-------------------->
                     </div>
@@ -361,7 +353,7 @@
             </div><!-- /.modal -->
         </div>
 
-    </form>--%>
+    </form>
     <!--------------------------------------添加的模糊框------------------------>
 
     <!-------------------------------------------------------------->
@@ -375,7 +367,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">
+                        <h4 class="modal-title" id="myModalLabel2">
                             修改密码
                         </h4>
                     </div>

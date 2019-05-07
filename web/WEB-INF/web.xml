@@ -38,4 +38,14 @@
         <servlet-name>UpdateBookServlet</servlet-name>
         <url-pattern>/update</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddBookServlet</servlet-name>
+        <servlet-class>servlet.AddBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBookServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
 </web-app>
