@@ -6,7 +6,7 @@ package bean;
 public class User {
 
     private int userId;//id
-    private int status;//用来判断是管理员还是读者，读者的值为0，管理员为1
+    private String status;//用来判断是管理员还是读者，读者的值为0，管理员为1
     private String adminName;//账号
     private String userName;//用户名
     private String password;//密码
@@ -20,11 +20,11 @@ public class User {
         this.userId = userId;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

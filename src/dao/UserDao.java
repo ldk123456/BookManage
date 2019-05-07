@@ -55,7 +55,7 @@ public class UserDao {
         PreparedStatement stm = null;
         try {
             stm = conn.prepareStatement(sql);
-            stm.setInt(1, 1);
+            stm.setString(1, "普通用户");
             stm.setString(2, adminName);
             stm.setString(3, userName);
             stm.setString(4, password);
@@ -84,7 +84,7 @@ public class UserDao {
             rs = stm.executeQuery();
             if(rs.next()){
                 user.setUserId(rs.getInt("id"));
-                user.setStatus(rs.getInt("status"));
+                user.setStatus(rs.getString("status"));
                 user.setAdminName(rs.getString("admin_name"));
                 user.setUserName(rs.getString("user_name"));
                 user.setPassword(rs.getString("password"));
@@ -102,7 +102,7 @@ public class UserDao {
     /**
      * 获取全部用户的信息，其中sql语句中的status=0，表示只查找读者，不显示管理员的
      * @return
-     */
+     *//*
     public ArrayList<User> getUserInfo(){
         ArrayList<User> tagArray = new ArrayList<>();
         Connection conn = DBUtil.getConnectDb();
@@ -130,7 +130,7 @@ public class UserDao {
             DBUtil.closeDB(rs, stm, conn);
         }
         return tagArray;
-    }
+    }*/
 
     /**
      * 根据传入的id，查找到对应的读者的全部信息，返回一个AdminBean类型的数据
@@ -148,7 +148,7 @@ public class UserDao {
             rs = stm.executeQuery();
             if(rs.next()){
                 user.setUserId(rs.getInt("id"));
-                user.setStatus(rs.getInt("status"));
+                user.setStatus(rs.getString("status"));
                 user.setAdminName(rs.getString("admin_name"));
                 user.setUserName(rs.getString("user_name"));
                 user.setPassword(rs.getString("password"));

@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
             //设置session的失效时间
             session.setMaxInactiveInterval(6000);
             //根据status的值来判断是管理员，还是读者，status=0为读者
-            if(user.getStatus()==1){
+            if(user.getStatus().equals("管理员")){
                 response.sendRedirect("/BookManage/manager.jsp");
             }else{
                 response.sendRedirect("/BookManage/admin.jsp");
