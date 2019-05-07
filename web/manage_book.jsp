@@ -9,9 +9,6 @@
 <%@ page import="dao.UserDao" %>
 <%@ page import="bean.Book" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dao.BookDao" %>
-<%@ page import="dao.TypeDao" %>
-<%@ page import="bean.Type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="ax-vertical-centered">
 <head>
@@ -81,9 +78,6 @@
                 </li>
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
-                </li>
-                <li>
-                    <a href="manage_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
                 </li>
             </ul>
         </div>
@@ -223,17 +217,7 @@
                         <div class="form-group">
                             <label for="updateBookType" class="col-sm-3 control-label">图书类型</label>
                             <div class="col-sm-7">
-                                <select class="form-control" id="updateBookType" name="type" onPropertyChange="showValue(this.value)">
-                                    <option value="-1">请选择</option>
-                                    <%
-                                        TypeDao typedao = new TypeDao();
-                                        ArrayList<Type> data = null;
-                                        data = (ArrayList<Type>)typedao.getTypeInfo();
-                                        for (Type bean : data){
-                                    %>
-                                    <option value="<%= bean.getTypeName()%>"><%= bean.getTypeName()%></option>
-                                    <%} %>
-                                </select>
+                                <input type="text" class="form-control" id="updateBookType" name="type" placeholder="请输入图书类型">
                                 <label class="control-label" for="updateBookType" style="display: none;"></label>
                             </div>
                         </div>
@@ -307,15 +291,7 @@
                         <div class="form-group">
                             <label for="addBookType" class="col-sm-3 control-label">图书类型</label>
                             <div class="col-sm-7">
-                                <select class="form-control" id="addBookType" name="type">
-                                    <option value="无分类">请选择</option>
-                                    <%
-                                        data = (ArrayList<Type>)typedao.getTypeInfo();
-                                        for (Type bean : data){
-                                    %>
-                                    <option value="<%= bean.getTypeName() %>"><%= bean.getTypeName() %></option>
-                                    <%} %>
-                                </select>
+                                <input type="text" class="form-control" id="addBookType" name="type" placeholder="请输入图书类型">
                                 <label class="control-label" for="addBookType" style="display: none;"></label>
                             </div>
                         </div>

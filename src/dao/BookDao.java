@@ -1,7 +1,6 @@
 package dao;
 
 import bean.Book;
-import bean.History;
 import util.DBUtil;
 
 import java.sql.Connection;
@@ -9,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * 关于图书连接数据库的所有操作的类
@@ -86,69 +84,6 @@ public class BookDao {
         }
         //System.out.println(uid);
 
-    }
-
-    /**
-     * 获取所有的图书信息，返回的是ArrayList数组形式
-     * @return
-     */
-    public ArrayList<Book> getBookInfo(){
-        ArrayList<Book> tag_Array = new ArrayList<>();
-        Connection conn = DBUtil.getConnectDb();
-        String sql = "select * from book";
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            stm = conn.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while(rs.next()){
-                Book tag = new Book();
-                tag.setBookId(rs.getInt("id"));
-                tag.setBookName(rs.getString("book_name"));
-                tag.setCard(rs.getString("card"));
-                tag.setAuthor(rs.getString("author"));
-                tag.setPress(rs.getString("press"));
-                tag.setType(rs.getString("type"));
-                tag_Array.add(tag);
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }finally{
-            DBUtil.closeDB(rs, stm, conn);
-        }
-        return tag_Array;
-    }
-
-    /**
-     * 获取单个图书的信息，根据传入的id来查找，返回一个Book数据类型
-     * @param bookId
-     * @return
-     */
-    public Book getBook(int bookId){
-        Book tag = new Book();
-        Connection conn = DBUtil.getConnectDb();
-        String sql = "select * from book where id="+bookId;
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            stm = conn.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while(rs.next()){
-                tag.setBookId(rs.getInt("id"));
-                tag.setBookName(rs.getString("book_name"));
-                tag.setCard(rs.getString("card"));
-                tag.setAuthor(rs.getString("author"));
-                tag.setPress(rs.getString("press"));
-                tag.setType(rs.getString("type"));
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }finally{
-            DBUtil.closeDB(rs, stm, conn);
-        }
-        return tag;
     }
 
     /**

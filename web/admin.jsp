@@ -8,9 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="bean.User" %>
 <%@ page import="dao.UserDao" %>
-<%@ page import="bean.Book" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="dao.BookDao" %>
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
     <title>救护队图书资料管理系统</title>

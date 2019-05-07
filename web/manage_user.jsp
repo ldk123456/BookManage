@@ -1,10 +1,11 @@
 <%--
+&lt;%&ndash;
   Created by IntelliJ IDEA.
   User: LDK
   Date: 2019/5/7
   Time: 13:10
   To change this template use File | Settings | File Templates.
---%>
+&ndash;%&gt;
 <%@ page import="bean.User" %>
 <%@ page import="dao.UserDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -75,9 +76,6 @@
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
                 </li>
-                <li>
-                    <a href="manage_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
-                </li>
             </ul>
         </div>
 
@@ -90,7 +88,7 @@
                             <div class="text-muted bootstrap-admin-box-title">用户管理</div>
                         </div>
                         <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                            <form class="form-horizontal" <%--action="/books/selectServlet"--%> method="post">
+                            <form class="form-horizontal" &lt;%&ndash;action="/books/selectServlet"&ndash;%&gt; method="post">
 
                                 <div class="col-lg-3 form-group">
 
@@ -476,3 +474,4 @@
 </body>
 </html>
 
+--%>

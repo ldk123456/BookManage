@@ -7,18 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="312abc9c-d4ac-4690-a2ef-0a97d44e2164" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/servlet/AddTypeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/DeleteTypeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servlet/UpdateBookTypeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/manage_booktype.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/manage_user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/manage_book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/manage_book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/manage_user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/manage_user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/manager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/select.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/History.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/TypeDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/AddTypeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/DeleteTypeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/UpdateBookTypeServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/manage_book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/manage_book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manage_user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/manage_user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/manager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/select.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,53 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/manager.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="4" column="11" lean-forward="true" selection-end-line="248" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/manage_booktype.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/servlet/DeleteTypeServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/WebContent/admin_booktype.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-772">
-              <caret line="164" column="5" lean-forward="true" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/src/com/rain/servlet/deleteTypeServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="39" selection-end-column="59" />
+            <state relative-caret-position="3922">
+              <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -89,8 +52,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/manage_user.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+            <state relative-caret-position="2683">
+              <caret line="245" column="46" selection-end-line="477" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/manage_book.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6179">
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -98,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/WebContent/admin_user.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="372" column="1" lean-forward="true" selection-start-line="90" selection-start-column="12" selection-end-line="372" selection-end-column="1" />
+            <state relative-caret-position="13764">
+              <caret line="372" column="1" selection-start-line="90" selection-start-column="12" selection-end-line="372" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -120,10 +92,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/bean/Type.java" />
         <option value="$PROJECT_DIR$/src/bean/User.java" />
         <option value="$PROJECT_DIR$/src/util/DBUtil.java" />
-        <option value="$PROJECT_DIR$/src/bean/Book.java" />
         <option value="$PROJECT_DIR$/src/bean/History.java" />
         <option value="$PROJECT_DIR$/src/dao/TypeDao.java" />
         <option value="$PROJECT_DIR$/src/servlet/LoginServlet.java" />
@@ -132,22 +102,24 @@
         <option value="$PROJECT_DIR$/src/servlet/UserServlet.java" />
         <option value="$PROJECT_DIR$/web/history.jsp" />
         <option value="$PROJECT_DIR$/src/bean/Page.java" />
-        <option value="$PROJECT_DIR$/web/admin.jsp" />
-        <option value="$PROJECT_DIR$/web/select.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/SelectServlet.java" />
-        <option value="$PROJECT_DIR$/src/servlet/UpdateBookServlet.java" />
-        <option value="$PROJECT_DIR$/src/servlet/AddBookServlet.java" />
-        <option value="$PROJECT_DIR$/src/dao/BookDao.java" />
         <option value="$PROJECT_DIR$/src/servlet/DeleteBookServlet.java" />
         <option value="$PROJECT_DIR$/web/manage_type.jsp" />
-        <option value="$PROJECT_DIR$/web/manage_book.jsp" />
-        <option value="$PROJECT_DIR$/web/manager.jsp" />
-        <option value="$PROJECT_DIR$/web/manage_user.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/UpdateBookTypeServlet.java" />
         <option value="$PROJECT_DIR$/src/servlet/AddTypeServlet.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/manage_booktype.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/DeleteTypeServlet.java" />
+        <option value="$PROJECT_DIR$/web/manage_booktype.jsp" />
+        <option value="$PROJECT_DIR$/src/bean/Type.java" />
+        <option value="$PROJECT_DIR$/src/servlet/AddBookServlet.java" />
+        <option value="$PROJECT_DIR$/src/servlet/UpdateBookServlet.java" />
+        <option value="$PROJECT_DIR$/src/bean/Book.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/web/admin.jsp" />
+        <option value="$PROJECT_DIR$/web/select.jsp" />
+        <option value="$PROJECT_DIR$/web/manage_user.jsp" />
+        <option value="$PROJECT_DIR$/web/manager.jsp" />
+        <option value="$PROJECT_DIR$/web/manage_book.jsp" />
       </list>
     </option>
   </component>
@@ -171,28 +143,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="BookManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BookManage" type="462c0819:PsiDirectoryNode" />
+              <item name="BookManage" type="58d84e3e:PackageViewProjectNode" />
+              <item name="BookManage" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
-              <item name="BookManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BookManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BookManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BookManage" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BookManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BookManage" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="BookManage" type="58d84e3e:PackageViewProjectNode" />
+              <item name="BookManage" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -214,17 +175,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="BookManage" type="58d84e3e:PackageViewProjectNode" />
-              <item name="BookManage" type="616d4139:PackageViewModuleNode" />
+              <item name="BookManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BookManage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="BookManage" type="58d84e3e:PackageViewProjectNode" />
-              <item name="BookManage" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="BookManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BookManage" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -367,25 +328,26 @@
       <workItem from="1557135058168" duration="1074000" />
       <workItem from="1557196949231" duration="8000" />
       <workItem from="1557196975340" duration="3120000" />
-      <workItem from="1557202869793" duration="4694000" />
+      <workItem from="1557202869793" duration="4942000" />
+      <workItem from="1557212114792" duration="1328000" />
+      <workItem from="1557215181235" duration="1052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43825000" />
+    <option name="totallyTimeSpent" value="46453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4810268" visible="true" weight="0.1705757" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47879463" visible="true" weight="0.17377399" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info active="true" id="Web" order="7" sideWeight="0.51897323" side_tool="true" visible="true" weight="0.1705757" />
+      <window_info id="Web" order="7" sideWeight="0.52120537" side_tool="true" visible="true" weight="0.17377399" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924107" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.96651787" />
@@ -397,7 +359,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32924107" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -450,13 +412,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/static/css/bootstrap-admin-theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/WebContent/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -503,13 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/UserServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/WebContent/history.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-666" />
@@ -552,58 +500,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/history.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/servlet/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="47" column="56" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="40" column="73" lean-forward="true" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2701">
-          <caret line="73" column="55" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://G:/Tomcat 9.0/lib/servlet-api.jar!/javax/servlet/ServletRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/SelectServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/select.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="124" column="24" lean-forward="true" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -614,45 +514,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../BookManage1/web/manage_book.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="50" column="40" lean-forward="true" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../BookManage1/src/servlet/UpdateBookServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="24" column="61" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="24" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/UpdateBookServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../BookManage1/web/manage_book.jsp" />
+    <entry file="file://$PROJECT_DIR$/../BookManage1/src/servlet/UpdateBookServlet.java" />
     <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/src/com/rain/servlet/AddBookServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="703">
           <caret line="53" column="55" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="53" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/AddBookServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/BookDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -670,20 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/DeleteBookServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manage_book.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2021">
-          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bean/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -696,34 +549,6 @@
             <element signature="e#812#813#0" expanded="true" />
             <element signature="e#852#853#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="182" column="19" lean-forward="true" selection-start-line="182" selection-start-column="19" selection-end-line="182" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manage_user.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/WebContent/admin_user.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="372" column="1" lean-forward="true" selection-start-line="90" selection-start-column="12" selection-end-line="372" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="4" column="11" lean-forward="true" selection-end-line="248" />
         </state>
       </provider>
     </entry>
@@ -755,24 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/manage_booktype.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/TypeDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-851">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -794,6 +605,145 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/Type.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/毕设/book_management_system/WebContent/admin_user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13764">
+          <caret line="372" column="1" selection-start-line="90" selection-start-column="12" selection-end-line="372" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/BookDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1221">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6475">
+          <caret line="182" column="19" lean-forward="true" selection-start-line="182" selection-start-column="19" selection-end-line="182" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/AddBookServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/DeleteBookServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="47" column="56" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/SelectServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/UpdateBookServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/UserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-624">
+          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1068">
+          <caret line="40" column="73" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6396">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/select.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2701">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manage_booktype.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="139" column="11" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manager.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3922">
+          <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manage_user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2683">
+          <caret line="245" column="46" selection-end-line="477" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manage_book.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6179">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
         </state>
       </provider>
     </entry>

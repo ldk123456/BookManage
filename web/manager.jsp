@@ -75,9 +75,6 @@
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
                 </li>
-                <li>
-                    <a href="manage_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
-                </li>
             </ul>
         </div>
 
@@ -97,22 +94,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">图书分类管理</div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>根据分类名称查询图书分类信息</li>
-                                <li>添加、修改、删除图书分类</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
