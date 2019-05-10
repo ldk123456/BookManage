@@ -113,6 +113,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <table id="data_list" class="table table-hover table-bordered" >
+                        <%
+                            ArrayList<User> data2 = new ArrayList<>();
+                            data2 = (ArrayList<User>)request.getAttribute("data");
+                            if(data2!=null){
+                        %>
                         <thead>
                         <tr>
                             <th>账号</th>
@@ -121,11 +126,10 @@
                             <th>操作</th>
                         </tr>
                         </thead>
+                        <%} %>
 
                         <!---在此插入信息-->
                         <%
-                            ArrayList<User> data2 = new ArrayList<>();
-                            data2 = (ArrayList<User>)request.getAttribute("data");
                             if(data2!=null){
 
                             for (User bean : data2){

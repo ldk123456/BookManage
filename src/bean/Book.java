@@ -11,6 +11,7 @@ public class Book {
     private String author;//作者
     private String press;//出版社
     private String type;//图书的分类
+    private String path;//文件的存储路径
 
     public int getBookId() {
         return bookId;
@@ -58,5 +59,13 @@ public class Book {
 
     public void setPress(String press) {
         this.press = press;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

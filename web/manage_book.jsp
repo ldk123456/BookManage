@@ -9,6 +9,8 @@
 <%@ page import="dao.UserDao" %>
 <%@ page import="bean.Book" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.TypeDao" %>
+<%@ page import="bean.Type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="ax-vertical-centered">
 <head>
@@ -118,6 +120,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <table id="data_list" class="table table-hover table-bordered" >
+                        <%
+                            ArrayList<Book> bookdata = new ArrayList<>();
+                            bookdata = (ArrayList<Book>)request.getAttribute("data");
+                            if (bookdata != null) {
+                        %>
                         <thead>
                         <tr>
                             <th>图书号</th>
@@ -129,12 +136,11 @@
 
                         </tr>
                         </thead>
+                        <%} %>
 
 
                         <!---在此插入信息-->
                         <%
-                            ArrayList<Book> bookdata = new ArrayList<>();
-                            bookdata = (ArrayList<Book>)request.getAttribute("data");
                             if (bookdata != null) {
                                 for (Book bean : bookdata){
                         %>
@@ -217,7 +223,17 @@
                         <div class="form-group">
                             <label for="updateBookType" class="col-sm-3 control-label">图书类型</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updateBookType" name="type" placeholder="请输入图书类型">
+                                <select class="form-control" id="updateBookType" name="type" onPropertyChange="showValue(this.value)">
+                                    <option value="-1">请选择</option>
+                                    <%
+                                        TypeDao typedao = new TypeDao();
+                                        ArrayList<Type> data = null;
+                                        data = (ArrayList<Type>)typedao.getTypeInfo();
+                                        for (Type bean : data){
+                                    %>
+                                    <option value="<%= bean.getTypeName()%>"><%= bean.getTypeName()%></option>
+                                    <%} %>
+                                </select>
                                 <label class="control-label" for="updateBookType" style="display: none;"></label>
                             </div>
                         </div>
@@ -291,10 +307,19 @@
                         <div class="form-group">
                             <label for="addBookType" class="col-sm-3 control-label">图书类型</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addBookType" name="type" placeholder="请输入图书类型">
+                                <select class="form-control" id="addBookType" name="type">
+                                    <option value="无分类">请选择</option>
+                                    <%
+                                        data = (ArrayList<Type>)typedao.getTypeInfo();
+                                        for (Type bean : data){
+                                    %>
+                                    <option value="<%= bean.getTypeName() %>"><%= bean.getTypeName() %></option>
+                                    <%} %>
+                                </select>
                                 <label class="control-label" for="addBookType" style="display: none;"></label>
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <label for="addAuthor" class="col-sm-3 control-label">作者名称</label>
