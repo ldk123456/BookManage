@@ -70,7 +70,7 @@
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li>
-                    <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
+                    <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书资料管理</a>
                 </li>
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
@@ -84,12 +84,12 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">图书管理</div>
+                            <div class="text-muted bootstrap-admin-box-title">图书资料管理</div>
                         </div>
                         <div class="bootstrap-admin-panel-content">
                             <ul>
-                                <li>根据图书名称查询图书基本信息</li>
-                                <li>添加、修改、删除图书</li>
+                                <li>根据图书名称查询图书资料基本信息</li>
+                                <li>添加、修改、删除图书资料</li>
                             </ul>
                         </div>
                     </div>

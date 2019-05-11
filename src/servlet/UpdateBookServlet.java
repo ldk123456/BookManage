@@ -24,7 +24,9 @@ public class UpdateBookServlet extends HttpServlet {
         int bid = Integer.parseInt(request.getParameter("updatebid"));
         BookDao bookdao = new BookDao();
         bookdao.updateBook(bid,name,card,author,time,type,path);
-        response.sendRedirect("/BookManage/manage_book.jsp");
+        String message = "编辑成功";
+        request.setAttribute("message",message);
+        request.getRequestDispatcher("manage_book.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

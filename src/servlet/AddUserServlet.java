@@ -23,7 +23,9 @@ public class AddUserServlet extends HttpServlet {
         UserDao userdao = new UserDao();
         //调用函数添加读者信息
         userdao.addUser(adminName,userName,password,phone);
-        response.sendRedirect("/BookManage/manage_user.jsp");
+        String message = "添加成功";
+        request.setAttribute("message",message);
+        request.getRequestDispatcher("manage_user.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

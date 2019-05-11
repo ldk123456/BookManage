@@ -125,8 +125,7 @@
                         <td><%= bean.getBookName() %></td>
                         <td><%= bean.getAuthor() %></td>
                         <td><%= bean.getTime() %></td>
-                        <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" onclick="readBook(<%= bean.getBookId() %>)" >阅读</button>
-                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" onclick="downloadBook(<%= bean.getBookId() %>)" >下载</button>   	</td>
+                        <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" onclick="downloadBook(<%= bean.getBookId() %>)" >下载</button>   	</td>
                         </tbody>
                         <%} %>
 
@@ -134,18 +133,12 @@
 
                 </div>
             </div>
-
-            <script type="text/javascript">
-                function readBook(id) {
-                    //阅读功能
-                }
-            </script>
             <script type="text/javascript">
                 function downloadBook(id) {
                     con = confirm("是否下载?");
                     if(con == true){
                         //下载功能
-                        /*location.href = "/books/borrowServlet?tip=1&bid="+id;*/
+                        location.href = "download?id="+id;
                     }
                 }
             </script>

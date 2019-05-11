@@ -43,7 +43,6 @@
     String userId = (String)session.getAttribute("user_id");
     UserDao userDao = new UserDao();
     user = userDao.getUserById(userId);
-
 %>
 <nav class="navbar navbar-inverse navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small" role="navigation">
     <div class="container">
@@ -78,7 +77,7 @@
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li>
-                    <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
+                    <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书资料管理</a>
                 </li>
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
@@ -125,6 +124,29 @@
                         <%
                             ArrayList<Book> bookdata = new ArrayList<>();
                             bookdata = (ArrayList<Book>)request.getAttribute("data");
+                            String message = (String) request.getAttribute("message");
+                            if (message != null) {
+                                if (message.equals("上传成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"文件上传成功！\");\n");
+                                    out.write("</script>");
+                                }
+                                if (message.equals("上传失败")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"文件上传失败！\");\n");
+                                    out.write("</script>");
+                                }
+                                if (message.equals("删除成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"删除成功！\");\n");
+                                    out.write("</script>");
+                                }
+                                if (message.equals("编辑成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"编辑成功！\");\n");
+                                    out.write("</script>");
+                                }
+                            }
                             if (bookdata != null && bookdata.size() == 0){
                                 out.write("<script type=\"text/javascript\">");
                                 out.write("alert(\"未查询到结果，请重新查询！\");\n");
@@ -158,7 +180,7 @@
                         <td><%= bean.getTime() %></td>
                         <td><button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateModal"
                                     id="btn_update" onclick="update(<%= bean.getBookId() %>,<%= bean.getCard() %>,'<%= bean.getType()%>','<%= bean.getBookName() %>'
-                                ,'<%= bean.getAuthor() %>','<%= bean.getTime() %>','<%= bean.getPath()%>')">编辑</button>
+                                ,'<%= bean.getAuthor() %>','<%= bean.getTime() %>')">编辑</button>
                             <button type="button" class="btn btn-danger btn-xs" onclick="deleteBook(<%= bean.getBookId() %>)">删除</button>
                             <button type="button" class="btn btn-danger btn-xs" onclick="downloadBook(<%= bean.getBookId() %>)">下载</button>
                         </td>
@@ -194,7 +216,7 @@
             con = confirm("是否下载?");
             if(con == true){
                 //下载图书
-                //location.href = "delete?id="+id;
+                location.href = "download?id="+id;
             }
         }
     </script>
@@ -222,7 +244,7 @@
                             <label for="updateISBN" class="col-sm-3 control-label">编号</label>
                             <div class="col-sm-7">
                                 <input type="hidden" id="updateBookId" name="updatebid">
-                                <input type="text" class="form-control" id="updateISBN" name="card"  placeholder="请输入书号">
+                                <input type="text" class="form-control" id="updateISBN" name="card"  placeholder="请输入编号">
                                 <label class="control-label" for="updateISBN" style="display: none;"></label>
                             </div>
                         </div>
@@ -231,7 +253,7 @@
                         <div class="form-group">
                             <label for="updateBookName" class="col-sm-3 control-label">名称</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updateBookName" name="name"  placeholder="请输入图书名称">
+                                <input type="text" class="form-control" id="updateBookName" name="name"  placeholder="请输入名称">
                                 <label class="control-label" for="updateBookName" style="display: none;"></label>
                             </div>
                         </div>
@@ -257,7 +279,7 @@
                         <div class="form-group">
                             <label for="updateAuthor" class="col-sm-3 control-label">上传者</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updateAuthor" name="author" placeholder="请输入作者名称">
+                                <input type="text" class="form-control" id="updateAuthor" name="author" placeholder="请输入上传者">
                                 <label class="control-label" for="updateAuthor" style="display: none;"></label>
                             </div>
                         </div>
@@ -266,7 +288,7 @@
                         <div class="form-group">
                             <label for="updateTime" class="col-sm-3 control-label">上传时间</label>
                             <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="updateTime" name="time" placeholder="请输入出版社">
+                                    <input type="text" class="form-control" id="updateTime" name="time" placeholder="请输入上传时间">
                                 <label class="control-label" for="updateTime" style="display: none;"></label>
                             </div>
                         </div>
@@ -288,7 +310,7 @@
 
 
     <!--------------------------------------添加的模糊框------------------------>
-    <form class="form-horizontal" method="post" action="add">   <!--保证样式水平不混乱-->
+    <form class="form-horizontal" method="post" enctype="multipart/form-data" action="add">   <!--保证样式水平不混乱-->
         <!-- 模态框（Modal） -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -360,10 +382,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="updatePath" class="col-sm-3 control-label">文件</label>
+                            <label for="addPath" class="col-sm-3 control-label">文件</label>
                             <div class="col-sm-7">
                                 <input type="file" class="form-control" id="addPath" name="path" placeholder="请选择文件">
-                                <label class="control-label" for="updatePath" style="display: none;"></label>
+                                <label class="control-label" for="addPath" style="display: none;"></label>
                             </div>
                         </div>
 

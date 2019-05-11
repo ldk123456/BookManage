@@ -19,7 +19,9 @@ public class UpdateStatusServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("statusId"));
         UserDao userDao = new UserDao();
         userDao.updateStatus(id,status);
-        response.sendRedirect("/BookManage/manage_user.jsp");
+        String message = "权限成功";
+        request.setAttribute("message",message);
+        request.getRequestDispatcher("manage_user.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -128,5 +128,31 @@ public class BookDao {
         }
         return tag_Array;
     }
+
+    /**
+     * 通过id找到文件路径
+     * @param id
+     * @return
+     */
+    public String findPath(int id) {
+        String path = "";
+        Connection conn = DBUtil.getConnectDb();
+        String sql = "select path from book where id="+id;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = conn.prepareStatement(sql);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                path = rs.getString("path");
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            DBUtil.closeDB(rs, stm, conn);
+        }
+        return path;
+    }
 }
 

@@ -22,7 +22,9 @@ public class UpdateUserServlet extends HttpServlet {
         int aid = Integer.parseInt(request.getParameter("aid"));
         UserDao userdao = new UserDao();
         userdao.updateUser(aid,adminName,userName,password,phone);
-        response.sendRedirect("/BookManage/manage_user.jsp");
+        String message = "编辑成功";
+        request.setAttribute("message",message);
+        request.getRequestDispatcher("manage_user.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

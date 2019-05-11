@@ -69,7 +69,7 @@
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li>
-                    <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
+                    <a href="manage_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书资料管理</a>
                 </li>
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
@@ -116,6 +116,29 @@
                         <%
                             ArrayList<User> data2 = new ArrayList<>();
                             data2 = (ArrayList<User>)request.getAttribute("data");
+                            String message = (String) request.getAttribute("message");
+                            if (message != null) {
+                                if (message.equals("添加成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"添加用户成功！\");\n");
+                                    out.write("</script>");
+                                }
+                                if (message.equals("删除成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"删除用户成功！\");\n");
+                                    out.write("</script>");
+                                }
+                                if (message.equals("编辑成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"用户信息修改成功！\");\n");
+                                    out.write("</script>");
+                                }
+                                if (message.equals("权限成功")){
+                                    out.write("<script type=\"text/javascript\">");
+                                    out.write("alert(\"用户权限修改成功！\");\n");
+                                    out.write("</script>");
+                                }
+                            }
                             if (data2 != null && data2.size() == 0){
                                 out.write("<script type=\"text/javascript\">");
                                 out.write("alert(\"未查询到结果，请重新查询！\");\n");
