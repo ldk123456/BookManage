@@ -20,10 +20,11 @@ public class AddBookServlet extends HttpServlet {
         String name = request.getParameter("name");
         String type = request.getParameter("type");
         String author = request.getParameter("author");
-        String press = request.getParameter("press");
+        String time = request.getParameter("time");
+        String path = request.getParameter("path");
         BookDao bookdao = new BookDao();
         //调用函数，存入图书
-        bookdao.addBook(card,name,type,author,press);
+        bookdao.addBook(card,name,type,author,time,path);
         response.sendRedirect("/BookManage/manage_book.jsp");
     }
 

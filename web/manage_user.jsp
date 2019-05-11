@@ -116,7 +116,11 @@
                         <%
                             ArrayList<User> data2 = new ArrayList<>();
                             data2 = (ArrayList<User>)request.getAttribute("data");
-                            if(data2!=null){
+                            if (data2 != null && data2.size() == 0){
+                                out.write("<script type=\"text/javascript\">");
+                                out.write("alert(\"未查询到结果，请重新查询！\");\n");
+                                out.write("</script>");
+                            }else if(data2!=null){
                         %>
                         <thead>
                         <tr>
@@ -384,7 +388,7 @@
                         <div class="form-group">
                             <label for="oldPwd" class="col-sm-3 control-label">原密码</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password" id="oldPwd"  placeholder="请输入原密码">
+                                <input type="password" class="form-control" name="password" id="oldPwd"required="required" placeholder="请输入原密码">
                                 <label class="control-label" for="oldPwd" style="display: none"></label>
                             </div>
                         </div>
@@ -392,7 +396,7 @@
                         <div class="form-group">
                             <label for="newPwd" class="col-sm-3 control-label">新密码</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password2" id="newPwd"  placeholder="请输入新密码">
+                                <input type="password" class="form-control" name="password2" id="newPwd" required="required" placeholder="请输入新密码">
                                 <label class="control-label" for="newPwd" style="display: none"></label>
                             </div>
                         </div>
@@ -431,7 +435,7 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="请输入用户名" value='<% out.write(user.getUserName());%>'>
+                                <input type="text" class="form-control" id="name" name="name" required="required" placeholder="请输入用户名" value='<% out.write(user.getUserName());%>'>
                                 <label class="control-label" for="name" style="display: none"></label>
                             </div>
                         </div>
@@ -439,7 +443,7 @@
                         <div class="form-group">
                             <label for="phone" class="col-sm-3 control-label">手机号</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="请输入手机号" value='<% out.write(user.getPhone());%>'>
+                                <input type="text" class="form-control" id="phone" name="phone" required="required" placeholder="请输入手机号" value='<% out.write(user.getPhone());%>'>
                                 <label class="control-label" for="phone" style="display: none"></label>
                             </div>
                         </div>

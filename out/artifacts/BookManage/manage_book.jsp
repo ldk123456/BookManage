@@ -11,6 +11,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dao.TypeDao" %>
 <%@ page import="bean.Type" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="ax-vertical-centered">
 <head>
@@ -123,15 +125,19 @@
                         <%
                             ArrayList<Book> bookdata = new ArrayList<>();
                             bookdata = (ArrayList<Book>)request.getAttribute("data");
-                            if (bookdata != null) {
+                            if (bookdata != null && bookdata.size() == 0){
+                                out.write("<script type=\"text/javascript\">");
+                                out.write("alert(\"未查询到结果，请重新查询！\");\n");
+                                out.write("</script>");
+                            }else if (bookdata != null) {
                         %>
                         <thead>
                         <tr>
-                            <th>图书号</th>
-                            <th>图书类型</th>
-                            <th>图书名称</th>
-                            <th>作者名称</th>
-                            <th>出版社</th>
+                            <th>编号</th>
+                            <th>类型</th>
+                            <th>名称</th>
+                            <th>上传者</th>
+                            <th>上传时间</th>
                             <th>操作</th>
 
                         </tr>
@@ -149,11 +155,12 @@
                         <td><%= bean.getType() %></td>
                         <td><%= bean.getBookName() %></td>
                         <td><%= bean.getAuthor() %></td>
-                        <td><%= bean.getPress() %></td>
+                        <td><%= bean.getTime() %></td>
                         <td><button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateModal"
                                     id="btn_update" onclick="update(<%= bean.getBookId() %>,<%= bean.getCard() %>,'<%= bean.getType()%>','<%= bean.getBookName() %>'
-                                ,'<%= bean.getAuthor() %>','<%= bean.getPress() %>')">修改</button>
+                                ,'<%= bean.getAuthor() %>','<%= bean.getTime() %>','<%= bean.getPath()%>')">编辑</button>
                             <button type="button" class="btn btn-danger btn-xs" onclick="deleteBook(<%= bean.getBookId() %>)">删除</button>
+                            <button type="button" class="btn btn-danger btn-xs" onclick="downloadBook(<%= bean.getBookId() %>)">下载</button>
                         </td>
                         </tbody>
                             <%} %>
@@ -165,13 +172,14 @@
     </div>
     <script type="text/javascript">
 
-        function update(bid,card,type,name,author,press) {
+        function update(bid,card,type,name,author,time,path) {
             document.getElementById("updateBookId").value = bid;
             document.getElementById("updateISBN").value = card;
             document.getElementById("updateBookType").value = type;
             document.getElementById("updateBookName").value = name;
             document.getElementById("updateAuthor").value = author;
-            document.getElementById("updatePress").value = press;
+            document.getElementById("updateTime").value = time;
+            document.getElementById("updatePath").value = path;
         }
 
         function deleteBook(id) {
@@ -179,6 +187,14 @@
             if(con == true){
                 //删除图书
                 location.href = "delete?id="+id;
+            }
+        }
+
+        function downloadBook(id) {
+            con = confirm("是否下载?");
+            if(con == true){
+                //下载图书
+                //location.href = "delete?id="+id;
             }
         }
     </script>
@@ -203,7 +219,7 @@
                         <!---------------------表单-------------------->
 
                         <div class="form-group">
-                            <label for="updateISBN" class="col-sm-3 control-label">图书号</label>
+                            <label for="updateISBN" class="col-sm-3 control-label">编号</label>
                             <div class="col-sm-7">
                                 <input type="hidden" id="updateBookId" name="updatebid">
                                 <input type="text" class="form-control" id="updateISBN" name="card"  placeholder="请输入书号">
@@ -213,7 +229,7 @@
 
 
                         <div class="form-group">
-                            <label for="updateBookName" class="col-sm-3 control-label">图书名称</label>
+                            <label for="updateBookName" class="col-sm-3 control-label">名称</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="updateBookName" name="name"  placeholder="请输入图书名称">
                                 <label class="control-label" for="updateBookName" style="display: none;"></label>
@@ -221,7 +237,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="updateBookType" class="col-sm-3 control-label">图书类型</label>
+                            <label for="updateBookType" class="col-sm-3 control-label">类型</label>
                             <div class="col-sm-7">
                                 <select class="form-control" id="updateBookType" name="type" onPropertyChange="showValue(this.value)">
                                     <option value="-1">请选择</option>
@@ -239,7 +255,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="updateAuthor" class="col-sm-3 control-label">作者名称</label>
+                            <label for="updateAuthor" class="col-sm-3 control-label">上传者</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="updateAuthor" name="author" placeholder="请输入作者名称">
                                 <label class="control-label" for="updateAuthor" style="display: none;"></label>
@@ -248,12 +264,13 @@
 
 
                         <div class="form-group">
-                            <label for="updatePress" class="col-sm-3 control-label">出版社</label>
+                            <label for="updateTime" class="col-sm-3 control-label">上传时间</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updatePress" name="press"  placeholder="请输入出版社">
-                                <label class="control-label" for="updatePress" style="display: none;"></label>
+                                    <input type="text" class="form-control" id="updateTime" name="time" placeholder="请输入出版社">
+                                <label class="control-label" for="updateTime" style="display: none;"></label>
                             </div>
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -289,23 +306,23 @@
                         <!---------------------表单-------------------->
 
                         <div class="form-group">
-                            <label for="addISBN" class="col-sm-3 control-label">图书号</label>
+                            <label for="addISBN" class="col-sm-3 control-label">编号</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addISBN" required="required" name="card" placeholder="请输入书号">
+                                <input type="text" class="form-control" id="addISBN" required="required" name="card" placeholder="请输入编号">
                                 <label class="control-label" for="addISBN" style="display: none;"></label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="addBookName" class="col-sm-3 control-label">图书名称</label>
+                            <label for="addBookName" class="col-sm-3 control-label">名称</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addBookName" required="required" name="name"  placeholder="请输入图书名称">
+                                <input type="text" class="form-control" id="addBookName" required="required" name="name"  placeholder="请输入名称">
                                 <label class="control-label" for="addBookName" style="display: none;"></label>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="addBookType" class="col-sm-3 control-label">图书类型</label>
+                            <label for="addBookType" class="col-sm-3 control-label">类型</label>
                             <div class="col-sm-7">
                                 <select class="form-control" id="addBookType" name="type">
                                     <option value="无分类">请选择</option>
@@ -320,21 +337,33 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="addAuthor" class="col-sm-3 control-label">作者名称</label>
+                            <label for="addAuthor" class="col-sm-3 control-label">上传者</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addAuthor" required="required" name="author"  placeholder="请输入作者名称">
+                                <input type="text" class="form-control" id="addAuthor" required="required" name="author"  placeholder="请输入上传者" value="<%= user.getUserName()%>">
                                 <label class="control-label" for="addAuthor" style="display: none;"></label>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="addPress" class="col-sm-3 control-label">出版社</label>
+                            <label for="addTime" class="col-sm-3 control-label">上传时间</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="addPress" required="required" name="press"  placeholder="请输入出版社">
-                                <label class="control-label" for="addPress" style="display: none;"></label>
+                                <%
+                                    Date now = new Date();
+                                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                                    String nowTime = dateFormat.format(now);
+                                %>
+                                <input type="text" class="form-control" id="addTime" required="required" name="time" placeholder="请输入上传时间" value="<%=nowTime%>">
+                                <label class="control-label" for="addTime" style="display: none;"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="updatePath" class="col-sm-3 control-label">文件</label>
+                            <div class="col-sm-7">
+                                <input type="file" class="form-control" id="addPath" name="path" placeholder="请选择文件">
+                                <label class="control-label" for="updatePath" style="display: none;"></label>
                             </div>
                         </div>
 
@@ -377,7 +406,7 @@
                         <div class="form-group">
                             <label for="oldPwd" class="col-sm-3 control-label">原密码</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password" id="oldPwd"  placeholder="请输入原密码">
+                                <input type="password" class="form-control" name="password" id="oldPwd" required="required"  placeholder="请输入原密码">
                                 <label class="control-label" for="oldPwd" style="display: none"></label>
                             </div>
                         </div>
@@ -385,7 +414,7 @@
                         <div class="form-group">
                             <label for="newPwd" class="col-sm-3 control-label">新密码</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password2" id="newPwd"  placeholder="请输入新密码">
+                                <input type="password" class="form-control" name="password2" id="newPwd" required="required"  placeholder="请输入新密码">
                                 <label class="control-label" for="newPwd" style="display: none"></label>
                             </div>
                         </div>
@@ -424,7 +453,7 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="请输入用户名" value='<% out.write(user.getUserName());%>'>
+                                <input type="text" class="form-control" id="name" name="name" required="required" placeholder="请输入用户名" value='<% out.write(user.getUserName());%>'>
                                 <label class="control-label" for="name" style="display: none"></label>
                             </div>
                         </div>
@@ -432,7 +461,7 @@
                         <div class="form-group">
                             <label for="phone" class="col-sm-3 control-label">手机号</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="请输入手机号" value='<% out.write(user.getPhone());%>'>
+                                <input type="text" class="form-control" id="phone" name="phone" required="required" placeholder="请输入手机号" value='<% out.write(user.getPhone());%>'>
                                 <label class="control-label" for="phone" style="display: none"></label>
                             </div>
                         </div>

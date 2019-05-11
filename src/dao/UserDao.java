@@ -22,7 +22,7 @@ public class UserDao {
      */
     public boolean login(String admin_name, String password){
         Connection conn = DBUtil.getConnectDb();
-        String sql = "select * from user where admin_name="+admin_name+" and password="+password;
+        String sql = "select * from user where admin_name="+admin_name+" and password='"+password+"'";
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {

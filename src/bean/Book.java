@@ -8,8 +8,8 @@ public class Book {
     private int bookId;//id
     private String bookName;//图书名称
     private String card;//图书号
-    private String author;//作者
-    private String press;//出版社
+    private String author;//上传者
+    private String time;//上传时间
     private String type;//图书的分类
     private String path;//文件的存储路径
 
@@ -53,12 +53,12 @@ public class Book {
         this.type = type;
     }
 
-    public String getPress() {
-        return press;
+    public String getTime() {
+        return time;
     }
 
-    public void setPress(String press) {
-        this.press = press;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getPath() {

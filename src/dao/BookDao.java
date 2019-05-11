@@ -20,12 +20,13 @@ public class BookDao {
      * @param name
      * @param type
      * @param author
-     * @param press
+     * @param time
+     * @param path
      */
-    public void addBook(String card, String name, String type, String author, String press) {
+    public void addBook(String card, String name, String type, String author, String time, String path) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
-        String sql = "insert into book(book_name,card,author,press,type) values(?,?,?,?,?)";
+        String sql = "insert into book(book_name,card,author,time,type,path) values(?,?,?,?,?,?)";
         int rs = 0;
         PreparedStatement stm = null;
         try {
@@ -33,8 +34,9 @@ public class BookDao {
             stm.setString(1, name);
             stm.setString(2, card);
             stm.setString(3, author);
-            stm.setString(4, press);
+            stm.setString(4, time);
             stm.setString(5, type);
+            stm.setString(6, path);
             rs = stm.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -43,21 +45,29 @@ public class BookDao {
     }
 
     /**
-     * 修改图书的信息，id作为条件，
+     * 修改图书的信息，id作为条件
+     * @param bookId
+     * @param name
+     * @param card
+     * @param author
+     * @param time
+     * @param type
+     * @param path
      */
-    public void updateBook(int bookId, String name, String card, String author, String press, String type) {
+    public void updateBook(int bookId, String name, String card, String author, String time, String type, String path) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
-        String sql = "update book set book_name=?,card=?,author=?,press=?,type=? where id=?";
+        String sql = "update book set book_name=?,card=?,author=?,press=?,type=?,path=? where id=?";
         PreparedStatement stm = null;
         try {
             stm = conn.prepareStatement(sql);
             stm.setString(1, name);
             stm.setString(2, card);
             stm.setString(3, author);
-            stm.setString(4, press);
+            stm.setString(4, time);
             stm.setString(5, type);
-            stm.setInt(6, bookId);
+            stm.setString(6, time);
+            stm.setInt(7, bookId);
             stm.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -82,8 +92,6 @@ public class BookDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //System.out.println(uid);
-
     }
 
     /**
@@ -107,8 +115,9 @@ public class BookDao {
                 tag.setBookName(rs.getString("book_name"));
                 tag.setCard(rs.getString("card"));
                 tag.setAuthor(rs.getString("author"));
-                tag.setPress(rs.getString("press"));
+                tag.setTime(rs.getString("time"));
                 tag.setType(rs.getString("type"));
+                tag.setPath(rs.getString("path"));
                 tag_Array.add(tag);
             }
         } catch (SQLException e) {

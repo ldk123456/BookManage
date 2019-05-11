@@ -19,10 +19,11 @@ public class UpdateBookServlet extends HttpServlet {
         String type = request.getParameter("type");
         String name = request.getParameter("name");
         String author = request.getParameter("author");
-        String press = request.getParameter("press");
+        String time = request.getParameter("time");
+        String path = request.getParameter("path");
         int bid = Integer.parseInt(request.getParameter("updatebid"));
         BookDao bookdao = new BookDao();
-        bookdao.updateBook(bid,name,card,author,press,type);
+        bookdao.updateBook(bid,name,card,author,time,type,path);
         response.sendRedirect("/BookManage/manage_book.jsp");
     }
 
