@@ -241,5 +241,32 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 统计不同权限的人数
+     * @param status
+     * @return
+     */
+    public int findUserByStatus(String status) {
+        int num = 0;
+        Connection conn = DBUtil.getConnectDb();
+        String sql = "select count(status=? or null) as num from user";
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, status);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                num = rs.getInt("num");
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            DBUtil.closeDB(rs, stm, conn);
+        }
+        return num;
+    }
 }
 

@@ -1,12 +1,15 @@
-<%@ page import="bean.User" %>
-<%@ page import="dao.UserDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: LDK
-  Date: 2019/4/26
-  Time: 18:56
+  Date: 2019/5/11
+  Time: 14:02
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="bean.User" %>
+<%@ page import="dao.UserDao" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="bean.Type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
@@ -35,7 +38,9 @@
     String userId = (String)session.getAttribute("user_id");
     UserDao userDao = new UserDao();
     user = userDao.getUserById(userId);
-
+    Map<String, Integer> userMap = (Map<String, Integer>) request.getAttribute("user_map");
+    Map<String, Integer> bookMap = (Map<String, Integer>) request.getAttribute("book_map");
+    ArrayList<Type> types = (ArrayList<Type>) request.getAttribute("types");
 %>
 <nav class="navbar navbar-inverse navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small" role="navigation">
     <div class="container">
@@ -54,7 +59,6 @@
                                 <li role="presentation" class="divider"></li>
                                 <li><a href="index.jsp">退出</a></li>
                             </ul>
-
                         </li>
                     </ul>
                 </div>
@@ -76,7 +80,7 @@
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                 </li>
                 <li>
-                    <a href="analysis"><i class="glyphicon glyphicon-chevron-right"></i> 统计分析</a>
+                    <a href="analysis.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 统计分析</a>
                 </li>
             </ul>
         </div>
@@ -87,41 +91,96 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">图书资料管理</div>
+                            <div class="text-muted bootstrap-admin-box-title">用户统计分析</div>
                         </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>根据图书名称查询图书资料基本信息</li>
-                                <li>添加、修改、删除图书资料</li>
-                            </ul>
+                        <div class="bootstrap-admin-panel-content" style="width: 50%">
+                            <!-- 图表容器 DOM -->
+                            <div id="user_container" style="width: 430px;height:300px;"></div>
+                            <!-- 引入 highcharts.js -->
+                            <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+                            <%-- 引入图表导出功能 --%>
+                            <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+                            <script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+                            <script src="http://cdn.hcharts.cn/highcharts/modules/offline-exporting.js"></script>
+                            <script>
+                                //导出按钮汉化
+                                Highcharts.setOptions({
+                                    lang: {
+                                        printChart:"打印图表",
+                                        downloadJPEG: "下载JPEG 图片" ,
+                                        downloadPDF: "下载PDF文档"  ,
+                                        downloadPNG: "下载PNG 图片"  ,
+                                        downloadSVG: "下载SVG 矢量图" ,
+                                        exportButtonTitle: "导出图片"
+                                    }
+                                });
+                                // 图表配置
+                                var options = {
+                                    chart: {
+                                        type: 'bar'                          //指定图表的类型，默认是折线图（line）
+                                    },
+                                    title: {
+                                        text: '用户统计分析'                 // 标题
+                                    },
+                                    xAxis: {
+                                        categories: ['管理员', '普通用户']   // x 轴分类
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: '人数'                // y 轴标题
+                                        }
+                                    },
+                                    series: [{                              // 数据列
+                                        name: '人数',                       // 数据列名
+                                        data: [ <%= userMap.get("管理员")%>, <%= userMap.get("普通用户")%>]                     // 数据
+                                    }]
+                                };
+                                // 图表初始化函数
+                                var chart = Highcharts.chart('user_container', options);
+                            </script>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">用户管理</div>
+                            <div class="text-muted bootstrap-admin-box-title">图书资料统计分析</div>
                         </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>根据账号查询用户基本信息</li>
-                                <li>添加、修改、删除读者信息</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">统计分析</div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <ul>
-                                <li>统计分析不同权限的用户</li>
-                                <li>统计分析不同分类的图书资料</li>
-                            </ul>
+                        <div class="bootstrap-admin-panel-content" style="width: 50%">
+                            <!-- 图表容器 DOM -->
+                            <div id="book_container" style="width: 430px;height:300px;"></div>
+                            <!-- 引入 highcharts.js -->
+                            <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+                            <%-- 引入图表导出功能 --%>
+                            <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+                            <script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+                            <script src="http://cdn.hcharts.cn/highcharts/modules/offline-exporting.js"></script>
+                            <script>
+                                // 图表配置
+                                var options = {
+                                    chart: {
+                                        type: 'bar'                          //指定图表的类型，默认是折线图（line）
+                                    },
+                                    title: {
+                                        text: '图书资料统计分析'                 // 标题
+                                    },
+                                    xAxis: {
+                                        categories: ['书籍', '行业文档', '法律法规']   // x 轴分类
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: '图书资料数量'                // y 轴标题
+                                        }
+                                    },
+                                    series: [{                              // 数据列
+                                        name: '数量',                        // 数据列名
+                                        data: [<%= bookMap.get("书籍")%>,<%= bookMap.get("行业文档")%>
+                                            , <%= bookMap.get("法律法规")%>]                     // 数据
+                                    }]
+                                };
+                                // 图表初始化函数
+                                var chart = Highcharts.chart('book_container', options);
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -245,3 +304,4 @@
 </div>
 </body>
 </html>
+

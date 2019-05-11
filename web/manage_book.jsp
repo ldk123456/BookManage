@@ -82,6 +82,9 @@
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                 </li>
+                <li>
+                    <a href="analysis"><i class="glyphicon glyphicon-chevron-right"></i> 统计分析</a>
+                </li>
             </ul>
         </div>
 
@@ -244,7 +247,7 @@
                             <label for="updateISBN" class="col-sm-3 control-label">编号</label>
                             <div class="col-sm-7">
                                 <input type="hidden" id="updateBookId" name="updatebid">
-                                <input type="text" class="form-control" id="updateISBN" name="card"  placeholder="请输入编号">
+                                <input type="text" class="form-control" id="updateISBN" name="card" required="required"  placeholder="请输入编号">
                                 <label class="control-label" for="updateISBN" style="display: none;"></label>
                             </div>
                         </div>
@@ -253,7 +256,7 @@
                         <div class="form-group">
                             <label for="updateBookName" class="col-sm-3 control-label">名称</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updateBookName" name="name"  placeholder="请输入名称">
+                                <input type="text" class="form-control" id="updateBookName" name="name" required="required"  placeholder="请输入名称">
                                 <label class="control-label" for="updateBookName" style="display: none;"></label>
                             </div>
                         </div>
@@ -261,7 +264,7 @@
                         <div class="form-group">
                             <label for="updateBookType" class="col-sm-3 control-label">类型</label>
                             <div class="col-sm-7">
-                                <select class="form-control" id="updateBookType" name="type" onPropertyChange="showValue(this.value)">
+                                <select class="form-control" id="updateBookType" name="type" required="required" onPropertyChange="showValue(this.value)">
                                     <option value="-1">请选择</option>
                                     <%
                                         TypeDao typedao = new TypeDao();
@@ -279,7 +282,7 @@
                         <div class="form-group">
                             <label for="updateAuthor" class="col-sm-3 control-label">上传者</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="updateAuthor" name="author" placeholder="请输入上传者">
+                                <input type="text" class="form-control" id="updateAuthor" name="author" required="required" placeholder="请输入上传者">
                                 <label class="control-label" for="updateAuthor" style="display: none;"></label>
                             </div>
                         </div>
@@ -288,7 +291,7 @@
                         <div class="form-group">
                             <label for="updateTime" class="col-sm-3 control-label">上传时间</label>
                             <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="updateTime" name="time" placeholder="请输入上传时间">
+                                    <input type="text" class="form-control" id="updateTime" name="time" required="required" placeholder="请输入上传时间">
                                 <label class="control-label" for="updateTime" style="display: none;"></label>
                             </div>
                         </div>
@@ -346,7 +349,7 @@
                         <div class="form-group">
                             <label for="addBookType" class="col-sm-3 control-label">类型</label>
                             <div class="col-sm-7">
-                                <select class="form-control" id="addBookType" name="type">
+                                <select class="form-control" id="addBookType" name="type" required="required">
                                     <option value="无分类">请选择</option>
                                     <%
                                         data = (ArrayList<Type>)typedao.getTypeInfo();
@@ -384,7 +387,7 @@
                         <div class="form-group">
                             <label for="addPath" class="col-sm-3 control-label">文件</label>
                             <div class="col-sm-7">
-                                <input type="file" class="form-control" id="addPath" name="path" placeholder="请选择文件">
+                                <input type="file" class="form-control" id="addPath" name="path" required="required" placeholder="请选择文件">
                                 <label class="control-label" for="addPath" style="display: none;"></label>
                             </div>
                         </div>

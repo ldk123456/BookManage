@@ -111,4 +111,13 @@
         <url-pattern>/download</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AnalysisServlet</servlet-name>
+        <servlet-class>servlet.AnalysisServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnalysisServlet</servlet-name>
+        <url-pattern>/analysis</url-pattern>
+    </servlet-mapping>
+
 </web-app>

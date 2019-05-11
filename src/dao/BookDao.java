@@ -154,5 +154,32 @@ public class BookDao {
         }
         return path;
     }
+
+    /**
+     * 统计不同分类的图书数量
+     * @param type
+     * @return
+     */
+    public int findBookByType(String type) {
+        int num = 0;
+        Connection conn = DBUtil.getConnectDb();
+        String sql = "select count(type=? or null) as num from book";
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, type);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                num = rs.getInt("num");
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally{
+            DBUtil.closeDB(rs, stm, conn);
+        }
+        return num;
+    }
 }
 

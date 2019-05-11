@@ -74,6 +74,9 @@
                 <li>
                     <a href="manage_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 用户管理</a>
                 </li>
+                <li>
+                    <a href="analysis"><i class="glyphicon glyphicon-chevron-right"></i> 统计分析</a>
+                </li>
             </ul>
         </div>
 
