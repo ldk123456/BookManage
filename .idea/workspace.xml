@@ -6,15 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="312abc9c-d4ac-4690-a2ef-0a97d44e2164" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BookManage/manage_user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BookManage/manage_user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/manage_book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/manage_book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/manage_user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/manage_user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/manager.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/select.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="312abc9c-d4ac-4690-a2ef-0a97d44e2164" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,44 +18,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/admin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-185">
-              <caret line="77" column="89" lean-forward="true" selection-start-line="77" selection-start-column="89" selection-end-line="77" selection-end-column="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/select.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-919">
-              <caret line="106" column="36" selection-start-line="106" selection-start-column="36" selection-end-line="106" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/manager.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2365">
-              <caret line="93" column="38" lean-forward="true" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/manage_book.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="114" column="145" selection-start-line="114" selection-start-column="145" selection-end-line="114" selection-end-column="145" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -312,18 +267,17 @@
       <workItem from="1557622529639" duration="1369000" />
       <workItem from="1557624725541" duration="2573000" />
       <workItem from="1557629162574" duration="62000" />
-      <workItem from="1557710263437" duration="1005000" />
+      <workItem from="1557710263437" duration="1151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86031000" />
+    <option name="totallyTimeSpent" value="86177000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46136865" visible="true" weight="0.18763326" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46136865" visible="true" weight="0.18763326" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -702,17 +656,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin.jsp">
+    <entry file="file://$PROJECT_DIR$/web/manage_book.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185">
-          <caret line="77" column="89" lean-forward="true" selection-start-line="77" selection-start-column="89" selection-end-line="77" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/select.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-919">
-          <caret line="106" column="36" selection-start-line="106" selection-start-column="36" selection-end-line="106" selection-end-column="36" />
+        <state relative-caret-position="2902">
+          <caret line="102" column="19" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -723,10 +670,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/manage_book.jsp">
+    <entry file="file://$PROJECT_DIR$/web/select.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="114" column="145" selection-start-line="114" selection-start-column="145" selection-end-line="114" selection-end-column="145" />
+        <state relative-caret-position="-919">
+          <caret line="106" column="36" selection-start-line="106" selection-start-column="36" selection-end-line="106" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185">
+          <caret line="77" column="89" lean-forward="true" selection-start-line="77" selection-start-column="89" selection-end-line="77" selection-end-column="89" />
         </state>
       </provider>
     </entry>
