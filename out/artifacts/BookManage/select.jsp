@@ -77,7 +77,7 @@
                             <form class="form-horizontal" action="select" method="post">
                                 <input type="hidden" name="tip" value="2">
                                 <div class="col-lg-8 form-group">
-                                    <label class="col-lg-4 control-label" for="bookName">图书名称</label>
+                                    <label class="col-lg-4 control-label" for="bookName">名称</label>
                                     <div class="col-lg-8">
                                         <input class="form-control" id="bookName" name="name" type="text" value="">
                                         <label class="control-label" for="bookName" style="display: none;"></label>
@@ -100,11 +100,11 @@
                     <table id="data_list" class="table table-hover table-bordered">
                         <thead>
                         <tr>
-                            <th>图书号</th>
-                            <th>图书类型</th>
-                            <th>图书名称</th>
-                            <th>作者名称</th>
-                            <th>出版社</th>
+                            <th>编号</th>
+                            <th>类型</th>
+                            <th>名称</th>
+                            <th>上传者</th>
+                            <th>上传时间</th>
                             <th>操作</th>
 
                         </tr>

@@ -5,8 +5,8 @@
   To change this template use File | Settings | File Templates.--%>
 <%@ page import="bean.User" %>
 <%@ page import="dao.UserDao" %>
-  <%@ page import="java.util.ArrayList" %>
-  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,6 @@
     String userId = (String)session.getAttribute("user_id");
     UserDao userDao = new UserDao();
     user = userDao.getUserById(userId);
-
 %>
 <nav class="navbar navbar-inverse navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small" role="navigation">
     <div class="container">
@@ -85,8 +84,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default bootstrap-admin-no-table-panel">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">用户管理</div>
+                        <div style="text-align: center" class="panel-heading">
+                            <div class="text-muted bootstrap-admin-box-title"><strong>用户管理</strong></div>
                         </div>
                         <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
                             <form class="form-horizontal" action="find" method="post">

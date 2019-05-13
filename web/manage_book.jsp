@@ -100,7 +100,7 @@
                             <form class="form-horizontal" action="select" method="post">
                                 <input type="hidden" name="tip" value="1">
                                 <div class="col-lg-7 form-group">
-                                    <label class="col-lg-4 control-label" for="bookName">图书名称</label>
+                                    <label class="col-lg-4 control-label" for="bookName">名称</label>
                                     <div class="col-lg-8">
                                         <input class="form-control" id="bookName" name="name" type="text" value="">
                                         <label class="control-label" for="bookName" style="display: none;"></label>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="col-lg-3 form-group">
 
-                                    <button type="button" class="btn btn-primary" id="btn_add" data-toggle="modal" data-target="#addModal">添加图书</button>
+                                    <button type="button" class="btn btn-primary" id="btn_add" data-toggle="modal" data-target="#addModal">添加图书资料</button>
                                 </div>
                             </form>
                         </div>

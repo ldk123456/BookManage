@@ -91,7 +91,7 @@
                         </div>
                         <div class="bootstrap-admin-panel-content">
                             <ul>
-                                <li>根据图书名称查询图书资料基本信息</li>
+                                <li>根据名称查询图书资料基本信息</li>
                                 <li>添加、修改、删除图书资料</li>
                             </ul>
                         </div>

@@ -75,7 +75,7 @@
                             <form class="form-horizontal" action="select" method="post">
                                 <input type="hidden" name="tip" value="2">
                                 <div class="col-lg-8 form-group">
-                                    <label class="col-lg-4 control-label" for="bookName">图书名称</label>
+                                    <label class="col-lg-4 control-label" for="bookName">名称</label>
                                     <div class="col-lg-8">
                                         <input class="form-control" id="bookName" name="name" type="text" value="">
                                         <label class="control-label" for="bookName" style="display: none;"></label>
