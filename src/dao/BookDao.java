@@ -54,7 +54,7 @@ public class BookDao {
      * @param type
      * @param path
      */
-    public void updateBook(int bookId, String name, String card, String author, String time, String type, String path) {
+    public synchronized void updateBook(int bookId, String name, String card, String author, String time, String type, String path) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
         String sql = "update book set book_name=?,card=?,author=?,press=?,type=?,path=? where id=?";

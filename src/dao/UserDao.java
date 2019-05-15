@@ -207,7 +207,7 @@ public class UserDao {
      * @param userId
      * @param status
      */
-    public void updateStatus(int userId, String status) {
+    public synchronized void updateStatus(int userId, String status) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
         String sql = "update user set status=? where id=?";
