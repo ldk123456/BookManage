@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.BookDao;
+import io.goeasy.GoEasy;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -109,6 +110,9 @@ public class AddBookServlet extends HttpServlet {
         String author = info.get("author");
         String time = info.get("time");
         bookdao.addBook(card,name,type,author,time,path);
+        String appKey = "BC-5dd8cd5729bd441b82d40abb78aea7ba";
+        GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", appKey);
+        goEasy.publish("book_msg", name);
         request.setAttribute("message",message);
         request.getRequestDispatcher("manage_book.jsp").forward(request, response);
     }

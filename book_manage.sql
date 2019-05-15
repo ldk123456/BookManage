@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 15/05/2019 10:45:52
+ Date: 15/05/2019 14:47:26
 */
 
 SET NAMES utf8mb4;
@@ -36,16 +36,7 @@ CREATE TABLE `book`  (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES (1, '法律法规1', '9787111213825', 'Admin1', '2019-05-11', '法律法规', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\law1.txt');
-INSERT INTO `book` VALUES (2, '书籍1', '9787121269394', 'Admin1', '2019-05-11', '书籍', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\book1.txt');
-INSERT INTO `book` VALUES (3, '书籍2', '9787111213825', 'Admin1', '2019-05-11', '书籍', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\book2.txt');
-INSERT INTO `book` VALUES (4, '行业文档1', '9787121269394', 'Admin1', '2019-05-11', '行业文档', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\doc1.txt');
-INSERT INTO `book` VALUES (5, '行业文档2', '9787121269394', 'Admin1', '2019-05-11', '行业文档', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\doc2.txt');
-INSERT INTO `book` VALUES (6, '行业文档3', '9787121269394', 'Admin1', '2019-05-11', '行业文档', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\doc3.txt');
-INSERT INTO `book` VALUES (7, '法律法规2', '9787121269394', 'Admin1', '2019-05-11', '法律法规', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\law2.txt');
-INSERT INTO `book` VALUES (8, '法律法规3', '9787121269394', 'Admin1', '2019-05-11', '法律法规', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\law3.txt');
-INSERT INTO `book` VALUES (9, '法律法规4', '9787121269394', 'Admin1', '2019-05-11', '法律法规', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\law4.txt');
-INSERT INTO `book` VALUES (10, '法律法规5', '9787111213825', 'Admin1', '2019-05-11', '法律法规', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\law5.txt');
+INSERT INTO `book` VALUES (52, '行业文档6', '9787111213828', 'Admin1', '2019-05-15', '行业文档', 'D:\\IdeaProjects\\javaweb\\BookManage\\out\\artifacts\\BookManage\\WEB-INF\\upload\\doc6.txt');
 
 -- ----------------------------
 -- Table structure for type

@@ -57,7 +57,7 @@ public class BookDao {
     public synchronized void updateBook(int bookId, String name, String card, String author, String time, String type, String path) {
         // TODO Auto-generated method stub
         Connection conn = DBUtil.getConnectDb();
-        String sql = "update book set book_name=?,card=?,author=?,press=?,type=?,path=? where id=?";
+        String sql = "update book set book_name=?,card=?,author=?,time=?,type=?,path=? where id=?";
         PreparedStatement stm = null;
         try {
             stm = conn.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class BookDao {
             stm.setString(3, author);
             stm.setString(4, time);
             stm.setString(5, type);
-            stm.setString(6, time);
+            stm.setString(6, path);
             stm.setInt(7, bookId);
             stm.executeUpdate();
         } catch (SQLException e) {

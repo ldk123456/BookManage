@@ -26,6 +26,7 @@
     <script src="static/js/readerUpdatePwd.js"></script>
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
+    <script src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
 </head>
 <body class="bootstrap-admin-with-small-navbar">
 <!-- 判断是否已经登录 -->
@@ -58,7 +59,6 @@
         </div>
     </div>
 </nav>
-
 <div class="container">
     <!-- left, vertical navbar & content -->
     <div class="row">
@@ -216,6 +216,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    var goEasy = new GoEasy({
+        appkey: "BS-cf2fdf15a4c04d40bcca91515b4354fd"
+    });
+    goEasy.subscribe({
+        channel: "book_msg",
+        onMessage: function (message) {
+            alert("最新图书资料："+message.content);
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -131,22 +131,22 @@
                             if (message != null) {
                                 if (message.equals("上传成功")){
                                     out.write("<script type=\"text/javascript\">");
-                                    out.write("alert(\"文件上传成功！\");\n");
+                                    out.write("alert(\"图书资料添加成功！\");\n");
                                     out.write("</script>");
                                 }
                                 if (message.equals("上传失败")){
                                     out.write("<script type=\"text/javascript\">");
-                                    out.write("alert(\"文件上传失败！\");\n");
+                                    out.write("alert(\"图书资料添加失败！\");\n");
                                     out.write("</script>");
                                 }
                                 if (message.equals("删除成功")){
                                     out.write("<script type=\"text/javascript\">");
-                                    out.write("alert(\"删除成功！\");\n");
+                                    out.write("alert(\"图书资料删除成功！\");\n");
                                     out.write("</script>");
                                 }
                                 if (message.equals("编辑成功")){
                                     out.write("<script type=\"text/javascript\">");
-                                    out.write("alert(\"编辑成功！\");\n");
+                                    out.write("alert(\"图书资料编辑成功！\");\n");
                                     out.write("</script>");
                                 }
                             }
